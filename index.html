@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8"/>
+    <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" name="viewport"/>
+    <meta content="ie=edge" http-equiv="X-UA-Compatible"/>
+    <meta content="Elliot Sutton - Développeur Web Fullstack" name="title"/>
+    <meta content="Portfolio terminal" name="description"/>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
+    <meta content="Français" name="language"/>
+    <meta content="Elliot Sutton" name="author"/>
+    <title>CV - Elliot Sutton</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap" rel="stylesheet">
+    <link href="src/style/style.css" rel="stylesheet">
+    <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" referrerpolicy="no-referrer" rel="stylesheet"/>
+</head>
+<body>
+    <div class="terminal open">
+        <div class="terminal-header">
+            <div class="button close"></div>
+            <div class="button minimize"></div>
+            <div class="button maximize"></div>
+        </div>
+        <div class="terminal-body">
+            <div class="terminal-banner">
+                <pre>
+     ___           ___       ___                    ___                   
+    /  /\         /  /\     /  /\       ___        /  /\          ___     
+   /  /::\       /  /:/    /  /:/      /__/\      /  /::\        /__/\    
+  /  /:/\:\     /  /:/    /  /:/       \__\:\    /  /:/\:\       \  \:\   
+ /  /::\ \:\   /  /:/    /  /:/        /  /::\  /  /:/  \:\       \__\:\  
+/__/:/\:\ \:\ /__/:/    /__/:/      __/  /:/\/ /__/:/ \__\:\      /  /::\ 
+\  \:\ \:\_\/ \  \:\    \  \:\     /__/\/:/    \  \:\ /  /:/     /  /:/\:\
+ \  \:\ \:\    \  \:\    \  \:\    \  \::/      \  \:\  /:/     /  /:/__\/
+  \  \:\_\/     \  \:\    \  \:\    \  \:\       \  \:\/:/     /__/:/     
+   \  \:\        \  \:\    \  \:\    \__\/        \  \::/      \__\/      
+    \__\/         \__\/     \__\/                  \__\/                
+                
+     ___           ___                                       ___           ___     
+    /  /\         /  /\          ___           ___          /  /\         /  /\    
+   /  /::\       /  /:/         /__/\         /__/\        /  /::\       /  /::|   
+  /__/:/\:\     /  /:/          \  \:\        \  \:\      /  /:/\:\     /  /:|:|   
+ _\_ \:\ \:\   /  /:/   __       \__\:\        \__\:\    /  /:/  \:\   /  /:/|:|__ 
+/__/\ \:\ \:\ /__/:/   / /\      /  /::\       /  /::\  /__/:/ \__\:\ /__/:/ |:| /\
+\  \:\ \:\_\/ \  \:\  / /:/     /  /:/\:\     /  /:/\:\ \  \:\ /  /:/ \__\/  |:|/:/
+ \  \:\_\:\    \  \:\/ /:/     /  /:/__\/    /  /:/__\/  \  \:\  /:/      |  |:/:/ 
+  \  \:\/:/     \  \:\/:/     /__/:/        /__/:/        \  \:\/:/       |__|::/  
+   \  \::/       \  \::/      \__\/         \__\/          \  \::/        /__/:/   
+    \__\/         \__\/                                     \__\/         \__\/  
+                </pre>
+                <p>Bienvenue sur mon portfolio !
+                    <br>
+                    <br>Pour afficher les commandes disponibles tapez <code>help</code>.
+                    <br><em>⏎</em> : valide une commande
+                    <br><em>↹</em> : auto-complète une commande
+                    <br><em>↑</em> : remonte dans l'historique des commandes
+                    <br><em>↓</em> : redescend dans l'historique des commandes
+                </p>
+            </div>
+            <div id="terminal"></div>
+        </div>
+    </div>
+
+    <div class="menu-bar">
+        <div class="left">
+          <i class="fab fa-apple"></i>
+          <span class="menus active">Code</span>
+          <span class="menus">Fichier</span>
+          <span class="menus">Edition</span>
+          <span class="menus">Sélection</span>
+          <span class="menus">Affichage</span>
+          <span class="menus">Atteindre</span>
+          <span class="menus">Exécuter</span>
+          <span class="menus">Terminal</span>
+          <span class="menus">Fenêtre</span>
+          <span class="menus">Aide</span>
+        </div>
+        <div class="right">
+      
+          <div class="menu-ico">
+            <i class="fas fa-volume-up"></i>
+          </div>
+          <div class="menu-ico">
+            <i class="fab fa-bluetooth-b"></i>
+          </div>
+          <div class="menu-ico">
+            <i class="fas fa-battery-half"></i>
+          </div>
+          <div class="menu-ico">
+            <i class="fas fa-wifi"></i>
+          </div>
+          <div class="menu-ico">
+            <i class="fas fa-search"></i>
+          </div>
+          <div class="menu-ico">
+            <img src="./src/img/control-center-icon.webp" alt="" class="control-center">
+          </div>
+          <div class="menu-ico">
+            <img src="./src/img/siri.png" alt="" class="siri">
+          </div>
+      
+          <div class="menu-time"></div>
+      
+        </div>
+      </div>
+      
+      <div class="dock">
+        <div class="dock-container">
+          <li class="li-1">
+            <div class="name">Finder</div>
+            <img class="ico" src="./src/img/finder.png" alt="finder icon">
+          </li>
+          <li class="li-2 mobile-none">
+            <div class="name">LaunchPad</div>
+            <img class="ico" src="./src/img/launchpad.png" alt="launchpad icon">
+          </li>
+          <li class="li-3 li-terminal">
+            <div class="name">Terminal</div>
+            <img class="ico" src="./src/img/terminal.png" alt="terminal icon">
+          </li>
+          <li class="li-4">
+            <div class="name">Contacts</div>
+            <img class="ico" src="./src/img/contacts.png" alt="contacts icon">
+          </li>
+          <li class="li-5">
+            <div class="name">Notes</div>
+            <img class="ico" src="./src/img/notes.png" alt="notes icon">
+          </li>
+          <li class="li-6 mobile-none">
+            <div class="name">Rappels</div>
+            <img class="ico" src="./src/img/reminders.png" alt="rappels icon">
+          </li>
+          <li class="li-7">
+            <div class="name">Photos</div>
+            <img class="ico" src="./src/img/photos.png" alt="photos icon">
+          </li>
+          <li class="li-8">
+            <div class="name">Messages</div>
+            <img class="ico" src="./src/img/messages.png" alt="messages icon">
+          </li>
+          <li class="li-9 mobile-none">
+            <div class="name">App Store</div>
+            <img class="ico" src="./src/img/appstore.png" alt="appstore icon">
+          </li>
+          <li class="li-10">
+            <div class="name">Safari</div>
+            <img class="ico" src="./src/img/safari.png" alt="safari icon">
+          </li>
+          <li class="li-bin li-11 mobile-none">
+            <div class="name">Corbeille</div>
+            <img class="ico ico-bin" src="./src/img/trash.png" alt="corbeille icon">
+          </li>
+      
+        </div>
+      </div>
+
+    <script src="src/js/index.js" type="module"></script>
+</body>
+</html>

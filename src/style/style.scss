@@ -1,0 +1,56 @@
+$border-radius: 7px;
+
+:root {
+  --text-color: #fff;
+  --link-color: #00DDFF;
+  --username-color: #5BD2D6;
+  --terminal-bg: #00000090;
+  --terminal-header-bg: #FAF6FA;
+  --scollbar-color: #ffffff95;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+@font-face {
+  font-family: "San Francisco";
+  font-weight: 400;
+  src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-regular-webfont.woff");
+}
+
+@font-face {
+  font-family: "San Francisco";
+  font-weight: 800;
+  src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-bold-webfont.woff");
+}
+
+body {
+  &.light-mode {
+    --text-color: #000;
+    --link-color: #008296;
+    --username-color: #3f8e91;
+    --terminal-bg: #ffffff90;
+    --terminal-header-bg: #F9F5F9;
+    --scollbar-color: #00000095;
+  }
+  box-sizing: border-box;
+  margin: 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+  background-image: url("../img/background.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+ul {
+  margin: 0;
+}
+
+@import './terminal/terminal.scss';
+@import './os/os.scss';

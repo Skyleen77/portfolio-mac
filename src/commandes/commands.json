@@ -1,0 +1,148 @@
+[
+  {
+    "command":"help",
+    "responseType":"list",
+    "value":[
+      "<code>a-propos</code> : Mes information personnelles",
+      "<code>clear</code> : Effacer les données du terminal",
+      "<code>experiences</code> : Liste de mes expériences",
+      "<code>formations</code> : Liste de mes formations",
+      "<code>projets</code> : Affiche la liste des projets que j'ai réalisé ou auxquels j'ai participé",
+      "<code>cv</code> : Télécharger le CV",
+      "<code>help</code> : Liste des commandes",
+      "<code>dark/light</code> : Changer le thème du terminal"
+    ]
+  },
+  {
+    "command":"a-propos",
+    "responseType":"text",
+    "value":[
+      "nom: Sutton",
+      "<br>prénom: Elliot",
+      "<br>age: 20 ans",
+      "<br>statut: Développeur Web Fullstack Freelance",
+      "<br>formation: Bac +3",
+      "localisation: Melun, France"
+    ]
+  },
+  {
+    "command":"experiences",
+    "responseType":"table",
+    "headers":[
+      "Date",
+      "Entreprise",
+      "Poste",
+      "Description"
+    ],
+    "rows":[
+      [
+        "Mars 2022 - aujourd’hui",
+        "Skyleen · Freelance",
+        "Développeur Web",
+        "Conception de site web vitrine, e-commerce et sur-mesure."
+      ],
+      [
+        "oct. 2021 - aujourd’hui",
+        "TECHNICAM · Contrat en alternance",
+        "Développeur web",
+        "Conception de site vitrine, e-commerce, immobilier, etc avec Wordpress.<br>Développement de fonctionnalités supplémentaire en Javascript et PHP.<br>Utilisation d'API<br>Conception de design."
+      ],
+      [
+        "janv. 2021 - févr. 2021 · 2 mois",
+        "Campus Saint-Aspais · Stage",
+        "Développeur applications web",
+        "Création d'une application de support technique pour le Campus."
+      ],
+      [
+        "juin 2020 - juil. 2020 · 2 mois",
+        "Jankovic ACGE · Stage",
+        "Développeur web",
+        "Élaboration d'un site web avec Prestashop, d'une base de données MySQL."
+      ]
+    ]
+  },
+  {
+    "command":"formations",
+    "responseType":"table",
+    "headers":[
+      "Date",
+      "École",
+      "Diplôme",
+      "Domaine"
+    ],
+    "rows":[
+      [
+        "2021 - 2022",
+        "MyDigitalSchool",
+        "Bachelor 3ème année",
+        "Développement web"
+      ],
+      [
+        "2019 - 2021",
+        "Campus Saint-Aspais",
+        "BTS services informatiques aux organisations",
+        "option SLAM (Solutions Logicielles et Applications Métiers)"
+      ],
+      [
+        "2017 - 2019",
+        "Lycée Saint-Aspais",
+        "Baccalauréat général",
+        "Économie et Social"
+      ]
+    ]
+  },
+  {
+    "command":"projets",
+    "responseType":"table",
+    "headers":[
+      "Nom",
+      "Date",
+      "Entreprise",
+      "Description",
+      "Technologie(s)",
+      "Consulter"
+    ],
+    "rows":[
+      [
+        "Skyleen",
+        "févr. 2022",
+        "Skyleen",
+        "Site vitrine de présentation de mes services en tant que développeur freelance.",
+        "HTML / CSS",
+        "<a href=\"https://skyleen.fr\" target=\"blank\">Voir</a>"
+      ],
+      [
+        "DMH",
+        "janv. 2022",
+        "TECHNICAM",
+        "Site vitrine pour l'entreprise de domotique DMH.",
+        "Wordpress",
+        "<a href=\"https://dmh77.com\" target=\"blank\">Voir</a>"
+      ],
+      [
+        "Portfolio",
+        "déc. 2021",
+        "Perso",
+        "Mon portfolio réalisé en React.",
+        "React",
+        "<a href=\"https://elliot-sutton.com\" target=\"blank\">Voir</a>"
+      ],
+      [
+        "Virtuabot",
+        "oct. 2021 - déc. 2021",
+        "Perso",
+        "Virtuabot est un bot discord complet. Possède des commandes de musiques, de modération, d'administration et bien plus. Ce bot à été développé en Node.js avec le module Discord.js.",
+        "Node.js, Discord.js, HTML / CSS / PHP / TWIG",
+        "<a href=\"https://virtuabot.fr\" target=\"blank\">Voir</a>"
+      ],
+      [
+        "SoccerClick",
+        "juin 2019 - août 2019",
+        "Perso",
+        "SoccerClick est mon premier projet, c'est un mini jeu créé durant les vacances d'été 2019 grâce à une formation en ligne sur Udemy. Il a été créé à l'aide du moteur de jeu Unity, et codé sur Microsoft Visual Studio en C#. Le but de ce mini jeu est de matcher son ballon, qui rebondit de haut en bas à droite et à gauche de l'écran, avec un ballon identique qui défile au milieu de l'écran.",
+        "Unity, C#, Adobe Illustrator",
+        "<a href=\"https://play.google.com/store/apps/details?id=com.SkyGames.SoccerClick\" target=\"blank\">Voir</a>"
+      ]
+    ]
+  }
+]

@@ -1,0 +1,577 @@
+@charset "UTF-8";
+:root {
+  --text-color: #fff;
+  --link-color: #00DDFF;
+  --username-color: #5BD2D6;
+  --terminal-bg: #00000090;
+  --terminal-header-bg: #FAF6FA;
+  --scollbar-color: #ffffff95;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+@font-face {
+  font-family: "San Francisco";
+  font-weight: 400;
+  src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-regular-webfont.woff");
+}
+@font-face {
+  font-family: "San Francisco";
+  font-weight: 800;
+  src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-bold-webfont.woff");
+}
+body {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+  background-image: url("../img/background.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+body.light-mode {
+  --text-color: #000;
+  --link-color: #008296;
+  --username-color: #3f8e91;
+  --terminal-bg: #ffffff90;
+  --terminal-header-bg: #F9F5F9;
+  --scollbar-color: #00000095;
+}
+
+ul {
+  margin: 0;
+}
+
+.terminal {
+  position: absolute;
+  z-index: 2;
+  resize: both;
+  overflow: hidden;
+  height: 80%;
+  width: 80%;
+  border-radius: 7px;
+  -webkit-transform: scale(0);
+          transform: scale(0);
+  -webkit-transition: -webkit-transform 0.4s;
+  transition: -webkit-transform 0.4s;
+  transition: transform 0.4s;
+  transition: transform 0.4s, -webkit-transform 0.4s;
+}
+.terminal.open {
+  -webkit-transform: scale(100%);
+          transform: scale(100%);
+}
+.terminal.full-screen {
+  height: 100% !important;
+  width: 100% !important;
+  top: 0 !important;
+  left: 0 !important;
+  resize: none;
+  border-radius: 0;
+}
+.terminal.full-screen .terminal-header {
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
+}
+.terminal.full-screen .terminal-body {
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.terminal .terminal-header {
+  height: 35px;
+  padding: 0 8px;
+  background-color: var(--terminal-header-bg);
+  margin: 0 auto;
+  border-top-right-radius: 7px;
+  border-top-left-radius: 7px;
+  cursor: move;
+}
+.terminal .terminal-header .button {
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+  border: 1px solid #000;
+  position: relative;
+  top: 10px;
+  left: 10px;
+  display: inline-block;
+  cursor: pointer;
+}
+.terminal .terminal-header .button.close {
+  left: 6px;
+  background-color: #FF605C;
+  border-color: #FF4A47;
+}
+.terminal .terminal-header .button.minimize {
+  left: 12px;
+  background-color: #FFBD44;
+  border-color: #FFB833;
+}
+.terminal .terminal-header .button.maximize {
+  left: 18px;
+  background-color: #00CA4E;
+  border-color: #00B846;
+}
+.terminal .terminal-body {
+  font-family: "Ubuntu Mono", monospace;
+  background: var(--terminal-bg);
+  color: var(--text-color);
+  padding: 8px;
+  overflow: auto;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+          box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+  border-bottom-right-radius: 7px;
+  border-bottom-left-radius: 7px;
+  height: calc(100% - 41px);
+  /* Works on Firefox */
+  scrollbar-width: thin;
+  scrollbar-color: var(--scollbar-color) transparent;
+  /* Works on Chrome, Edge, and Safari */
+}
+.terminal .terminal-body::-webkit-scrollbar {
+  width: 8px;
+}
+.terminal .terminal-body::-webkit-scrollbar-track {
+  background: transparent;
+}
+.terminal .terminal-body::-webkit-scrollbar-thumb {
+  background-color: var(--scollbar-color);
+  border-radius: 9999px;
+}
+.terminal .terminal-body code {
+  color: var(--link-color);
+  font-size: 14px;
+}
+.terminal .terminal-body .terminal-banner {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  color: var(--text-color);
+}
+.terminal .terminal-body .terminal-line {
+  margin-bottom: 8px;
+}
+.terminal .terminal-body .terminal-line::before {
+  content: "➜ Elliot-Sutton:~ Skyleen$ ";
+  color: var(--username-color);
+}
+.terminal .terminal-body .terminal-line input[type=text] {
+  background: none;
+  border: none;
+  font-family: "Ubuntu Mono", monospace;
+  color: var(--text-color);
+  outline: none;
+  font-size: 15px;
+  width: calc(100% - 230px);
+}
+.terminal .terminal-body .terminal-response {
+  margin: 8px 0 16px 0;
+}
+.terminal .terminal-body .terminal-response table {
+  border: 1px solid;
+  padding: 4px;
+  width: 100%;
+}
+.terminal .terminal-body .terminal-response table a {
+  text-decoration: none;
+  color: var(--link-color);
+}
+.terminal .terminal-body .terminal-response table thead th {
+  font-weight: normal;
+  color: var(--username-color);
+  border-bottom: 1px solid white;
+  padding-bottom: 4px;
+}
+.terminal .terminal-body .terminal-response table tbody td {
+  padding: 4px;
+}
+.terminal .terminal-body .terminal-response table tbody tr:not(:last-child) td {
+  border-bottom: 1px solid white;
+}
+
+@media (max-width: 880px) {
+  .terminal {
+    height: 80%;
+    width: 90%;
+  }
+  .terminal .terminal-body .terminal-banner pre {
+    font-size: 10px;
+  }
+}
+@media (max-width: 640px) {
+  body {
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+  }
+
+  .terminal {
+    position: unset;
+    width: unset !important;
+    height: unset !important;
+    resize: none;
+  }
+  .terminal .terminal-body {
+    max-width: unset;
+    width: 90vw;
+    height: 75vh;
+    margin-bottom: 7vh;
+  }
+  .terminal .terminal-body .terminal-banner pre {
+    font-size: 5px;
+  }
+}
+.menu-bar {
+  font-family: "San Francisco";
+  width: 100%;
+  height: 25px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  background: rgba(233, 233, 233, 0.5);
+  backdrop-filter: blur(50px);
+  -webkit-backdrop-filter: blur(50px);
+}
+.menu-bar i {
+  display: contents;
+  font-size: 13px;
+  color: #fff;
+}
+.menu-bar .left {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  width: auto;
+  margin-left: 20px;
+}
+.menu-bar .left img {
+  width: 15px;
+}
+.menu-bar .left .apple-logo {
+  -webkit-transform: scale(1);
+          transform: scale(1);
+  cursor: pointer;
+}
+.menu-bar .left .menus {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-left: 20px;
+  color: rgba(255, 255, 255, 0.95);
+  font-size: 14px;
+  cursor: pointer;
+}
+.menu-bar .left .active {
+  font-weight: bold;
+  color: #fff !important;
+}
+.menu-bar .right {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  width: 380px;
+  margin-right: 20px;
+}
+.menu-bar .right img {
+  height: 23px;
+}
+.menu-bar .right .vol {
+  -webkit-transform: scale(0.6);
+          transform: scale(0.6);
+  margin-right: -10px;
+}
+.menu-bar .right .menu-time {
+  height: 100%;
+  width: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  color: #fff;
+  font-size: 14px;
+  cursor: pointer;
+}
+.menu-bar .right .menu-ico {
+  height: 100%;
+  width: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  cursor: pointer;
+}
+.menu-bar .right .menu-ico .control-center {
+  -webkit-filter: invert(100%);
+  filter: invert(100%);
+  -webkit-transform: scale(0.5);
+          transform: scale(0.5);
+}
+.menu-bar .right .menu-ico .siri {
+  -webkit-transform: scale(0.7);
+          transform: scale(0.7);
+  -o-object-fit: fill;
+     object-fit: fill;
+}
+
+.dock {
+  font-family: "San Francisco";
+  width: auto;
+  height: 60px;
+  border-radius: 16px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  z-index: 10;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+}
+.dock .dock-container {
+  padding: 3px;
+  width: auto;
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border-radius: 16px;
+  background: rgba(83, 83, 83, 0.25);
+  backdrop-filter: blur(13px);
+  -webkit-backdrop-filter: blur(13px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+.dock .dock-container .li-bin {
+  margin-left: 20px;
+  border-left: 1.5px solid rgba(255, 255, 255, 0.4);
+  padding: 0px 10px;
+}
+.dock .dock-container .li-active::after {
+  position: absolute;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  content: "";
+  bottom: 2px;
+}
+.dock .dock-container li {
+  list-style: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 50px;
+  height: 50px;
+  vertical-align: bottom;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+  -webkit-transform-origin: 50% 100%;
+          transform-origin: 50% 100%;
+  cursor: pointer;
+}
+.dock .dock-container li:hover {
+  margin: 0px 13px 0px 13px;
+}
+.dock .dock-container li .name {
+  position: absolute;
+  top: -70px;
+  background: rgba(0, 0, 0, 0.5);
+  color: rgba(255, 255, 255, 0.9);
+  height: 10px;
+  padding: 10px 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border-radius: 5px;
+  visibility: hidden;
+}
+.dock .dock-container li .name::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  width: 0;
+  height: 0;
+  backdrop-filter: blur(13px);
+  -webkit-backdrop-filter: blur(13px);
+  border-left: 10px solid transparent;
+  border-right: 10px solid transparent;
+  border-top: 10px solid rgba(0, 0, 0, 0.5);
+}
+.dock .dock-container li .ico {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+.dock .dock-container li .ico-bin {
+  width: 94% !important;
+  height: 94% !important;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+.dock .dock-container li .ico-bin:hover {
+  margin-left: 10px;
+}
+
+.li-1:hover .name {
+  visibility: visible !important;
+}
+
+.li-2:hover .name {
+  visibility: visible !important;
+}
+
+.li-3:hover .name {
+  visibility: visible !important;
+}
+
+.li-4:hover .name {
+  visibility: visible !important;
+}
+
+.li-5:hover .name {
+  visibility: visible !important;
+}
+
+.li-6:hover .name {
+  visibility: visible !important;
+}
+
+.li-7:hover .name {
+  visibility: visible !important;
+}
+
+.li-8:hover .name {
+  visibility: visible !important;
+}
+
+.li-9:hover .name {
+  visibility: visible !important;
+}
+
+.li-10:hover .name {
+  visibility: visible !important;
+}
+
+.li-11:hover .name {
+  visibility: visible !important;
+}
+
+.li-12:hover .name {
+  visibility: visible !important;
+}
+
+.li-13:hover .name {
+  visibility: visible !important;
+}
+
+.li-14:hover .name {
+  visibility: visible !important;
+}
+
+.li-15:hover .name {
+  visibility: visible !important;
+}
+
+@media (max-width: 880px) {
+  .menu-bar .right .menu-ico,
+.menu-bar .right .menu-time {
+    display: none;
+  }
+}
+@media (max-width: 740px) {
+  .menu-bar .left .menus:not(.active),
+.mobile-none {
+    display: none !important;
+  }
+}/*# sourceMappingURL=style.css.map */
