@@ -52,5 +52,7 @@ ul {
   margin: 0;
 }
 
+@import './mixins.scss';
 @import './terminal/terminal.scss';
 @import './os/os.scss';
+@import './navigateur/navigateur.scss'

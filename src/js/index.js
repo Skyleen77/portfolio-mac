@@ -1,7 +1,9 @@
 import Terminal from "./terminal/terminal.js";
 import MacOS from "./os/os.js";
+import Browser from "./navigateur/navigateur.js";
 
 MacOS();
+Browser();
 
 fetch('./src/commandes/commands.json')
   .then(response => response.json())

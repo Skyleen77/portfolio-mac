@@ -1,25 +1,12 @@
 .terminal {
-  position: absolute;
-  z-index: 2;
-  resize: both;
-  overflow: hidden;
-  height: 80%;
-  width: 80%;
-  border-radius: $border-radius;
-  transform: scale(0);
-  transition: transform 0.4s;
+  @include screenBase;
 
   &.open {
     transform: scale(100%);
   }
 
   &.full-screen {
-    height: 100% !important;
-    width: 100% !important;
-    top: 0 !important;
-    left: 0 !important;
-    resize: none;
-    border-radius: 0;
+    @include fullScreen;
 
     .terminal-header {
       border-top-right-radius: 0;

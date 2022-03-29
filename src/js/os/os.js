@@ -3,7 +3,6 @@ const MacOS = () => {
   const time = document.querySelector('.menu-time');
   const icons = document.querySelectorAll(".ico");
   const options = {weekday: "short", month: "long", day: "2-digit", hour: "2-digit", minute: "2-digit"};
-  // let length = icons.length;
 
   let date = new Date();
   date = date.toLocaleDateString('fr-FR', options);

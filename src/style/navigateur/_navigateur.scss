@@ -1,0 +1,175 @@
+.navigateur {
+  @include screenBase;
+  background: #fff;
+  font-family: "San Francisco";
+
+  &.open {
+    transform: scale(100%);
+  }
+
+  &.full-screen {
+    @include fullScreen;
+
+    .navigateur-header {
+      border-top-right-radius: 0;
+      border-top-left-radius: 0;
+    }
+
+    .navigateur-body {
+      border-bottom-right-radius: 0;
+      border-bottom-left-radius: 0;
+    }
+  }
+
+  .navigateur-header {
+    height: 35px;
+    padding: 0 8px;
+    background-color: var(--terminal-header-bg);
+    margin: 0 auto;
+    border-top-right-radius: $border-radius;
+    border-top-left-radius: $border-radius;
+    cursor: move;
+
+    .tabs {
+      position: absolute;
+      top: 5px;
+      left: 95px;
+
+      .tab {
+        display: flex;
+        align-items: center;
+        font-size: 14px;
+        height: 30px;
+        padding: 0 15px;
+        border-top-right-radius: $border-radius;
+        border-top-left-radius: $border-radius;
+        background-color: #ebebeb;
+        color: rgb(83, 83, 83);
+
+        i {
+          color: rgba(168, 168, 168, 0.781);
+        }
+        
+        button {
+          height: 13px;
+          width: 13px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 9999px;
+          border: none;
+          outline: none;
+          cursor: pointer;
+
+          i {
+            font-size: 11px;
+          }
+
+          &:hover {
+            background-color: rgba(168, 168, 168, 0.781);
+
+            i {
+              color: #fff;
+            }
+          }
+        }
+      }
+    }
+
+    .button {
+      height: 10px;
+      width: 10px;
+      border-radius: 50%;
+      border: 1px solid #000;
+      position: relative;
+      top: 10px;
+      left: 10px;
+      display: inline-block;
+      cursor: pointer;
+
+      &.close {
+        left: 6px;
+        background-color: #FF605C;
+        border-color: #FF4A47;
+      }
+
+      &.minimize {
+        left: 12px;
+        background-color: #FFBD44;
+        border-color: #FFB833;
+      }
+
+      &.maximize {
+        left: 18px;
+        background-color: #00CA4E;
+        border-color: #00B846;
+      }
+    }
+  }
+
+  .navigateur-nav {
+    display: flex;
+    align-items: center;
+    padding: 6px;
+    background-color: rgb(235, 235, 235);
+
+    i {
+      font-size: 17px;
+      color: rgba(168, 168, 168, 0.781);
+    }
+
+    .search {
+      position: relative;
+    }
+    
+    input[type="text"] {
+      font-family: inherit;
+      font-size: 14px;
+      height: 35px;
+      border: none;
+      line-height: 1.5;
+      min-inline-size: 20rem;
+      padding-inline-start: 2rem;
+      border-radius: $border-radius;
+      background-color: #fff;
+      outline: none;
+    }
+    
+    .search i {
+      position: absolute;
+      top: .65rem;
+      left: .55rem;
+      font-size: 16px;
+    }
+
+    button {
+      font-size: .625rem;
+      border-radius: $border-radius;
+      border: none;
+      background: transparent;
+      margin: 0 5px;
+      height: 37px;
+      width: 37px;
+
+      &:hover {
+        background-color: rgb(201, 201, 201);
+        cursor: pointer;
+
+        i {
+          color: #fff;
+        }
+      }
+    }
+
+    [aria-label="account"] {
+      margin-left: auto;
+    }
+  }
+
+  .navigateur-body {
+    height: calc(100% - 41px);
+    color: var(--text-color);
+    border-bottom-right-radius: $border-radius;
+    border-bottom-left-radius: $border-radius;
+  }
+}

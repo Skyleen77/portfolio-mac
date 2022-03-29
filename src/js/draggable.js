@@ -1,11 +1,11 @@
-export function draggable(elmnt) {
+export function draggable(elmnt, dragElement) {
   var pos1 = 0,
     pos2 = 0,
     pos3 = 0,
     pos4 = 0;
-  const element = document.querySelector(".terminal-header");
-  if (element) {
-    element.onmousedown = dragMouseDown;
+  const dragEl = document.querySelector(dragElement);
+  if (dragEl) {
+    dragEl.onmousedown = dragMouseDown;
   } else {
     elmnt.onmousedown = dragMouseDown;
   }

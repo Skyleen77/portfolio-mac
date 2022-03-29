@@ -1,5 +1,5 @@
 import { getCV, setDarkMode } from "./custom-comands.js";
-import { draggable } from "./draggable.js";
+import { draggable } from "../draggable.js";
 
 const Terminal = (commands) => {
   let commandsList = [];
@@ -19,7 +19,7 @@ const Terminal = (commands) => {
 
   // draggable
   if (window.innerWidth > 880) {
-    draggable(document.querySelector(".terminal"));
+    draggable(terminalEl, ".terminal-header");
   }
 
   commands.forEach((c) => {
@@ -187,9 +187,19 @@ const Terminal = (commands) => {
     }
   }
 
-  function stringToDom(html) {
-    return document.createRange().createContextualFragment(html);
+  function toIndexTop() {
+    const navigateur = document.querySelector('.navigateur');
+    const zIndex = parseInt(window.getComputedStyle(terminalEl)['zIndex']);
+    const navZIndex = parseInt(window.getComputedStyle(navigateur)['zIndex']);
+    if(zIndex <= navZIndex) {
+      const newZIndex = zIndex + 1;
+      terminalEl.style.zIndex = `${newZIndex + 1}`;
+    }
   }
+
+  terminalEl.addEventListener('click', () => {
+    toIndexTop();
+  });
 
   document.body.addEventListener("click", function (e) {
     if (e.target.tagName !== "INPUT") {
@@ -198,28 +208,28 @@ const Terminal = (commands) => {
     }
   });
 
-  document.querySelector(".close").addEventListener("click", function (e) {
+  terminalEl.querySelector(".close").addEventListener("click", function (e) {
     terminalEl.classList.remove('open');
     terminalIcon.classList.remove('li-active');
   });
 
-  document.querySelector(".minimize").addEventListener("click", function (e) {
+  terminalEl.querySelector(".minimize").addEventListener("click", function (e) {
     terminalEl.classList.remove('open');
   });
 
-  terminalIcon.addEventListener("click", function (e) {
-    terminalEl.classList.add('open');
-    terminalIcon.classList.add('li-active');
-  });
-
-  document.querySelector(".maximize").addEventListener("click", function (e) {
+  terminalEl.querySelector(".maximize").addEventListener("click", function (e) {
     if(terminalEl.classList.contains("full-screen")) {
       terminalEl.classList.remove("full-screen");
     } else {
       terminalEl.classList.add("full-screen");
     }
   });
-  
+
+  terminalIcon.addEventListener("click", function (e) {
+    terminalEl.classList.add('open');
+    terminalIcon.classList.add('li-active');
+    toIndexTop();
+  });
 }
 
 export default Terminal;

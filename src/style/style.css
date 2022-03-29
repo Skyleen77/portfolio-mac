@@ -72,6 +72,7 @@ ul {
   transition: -webkit-transform 0.4s;
   transition: transform 0.4s;
   transition: transform 0.4s, -webkit-transform 0.4s;
+  z-index: 1;
 }
 .terminal.open {
   -webkit-transform: scale(100%);
@@ -574,4 +575,187 @@ ul {
 .mobile-none {
     display: none !important;
   }
+}
+.navigateur {
+  position: absolute;
+  z-index: 2;
+  resize: both;
+  overflow: hidden;
+  height: 80%;
+  width: 80%;
+  border-radius: 7px;
+  -webkit-transform: scale(0);
+          transform: scale(0);
+  -webkit-transition: -webkit-transform 0.4s;
+  transition: -webkit-transform 0.4s;
+  transition: transform 0.4s;
+  transition: transform 0.4s, -webkit-transform 0.4s;
+  z-index: 1;
+  background: #fff;
+  font-family: "San Francisco";
+}
+.navigateur.open {
+  -webkit-transform: scale(100%);
+          transform: scale(100%);
+}
+.navigateur.full-screen {
+  height: 100% !important;
+  width: 100% !important;
+  top: 0 !important;
+  left: 0 !important;
+  resize: none;
+  border-radius: 0;
+}
+.navigateur.full-screen .navigateur-header {
+  border-top-right-radius: 0;
+  border-top-left-radius: 0;
+}
+.navigateur.full-screen .navigateur-body {
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+}
+.navigateur .navigateur-header {
+  height: 35px;
+  padding: 0 8px;
+  background-color: var(--terminal-header-bg);
+  margin: 0 auto;
+  border-top-right-radius: 7px;
+  border-top-left-radius: 7px;
+  cursor: move;
+}
+.navigateur .navigateur-header .tabs {
+  position: absolute;
+  top: 5px;
+  left: 95px;
+}
+.navigateur .navigateur-header .tabs .tab {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 14px;
+  height: 30px;
+  padding: 0 15px;
+  border-top-right-radius: 7px;
+  border-top-left-radius: 7px;
+  background-color: #ebebeb;
+  color: #535353;
+}
+.navigateur .navigateur-header .tabs .tab i {
+  color: rgba(168, 168, 168, 0.781);
+}
+.navigateur .navigateur-header .tabs .tab button {
+  height: 13px;
+  width: 13px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border-radius: 9999px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+.navigateur .navigateur-header .tabs .tab button i {
+  font-size: 11px;
+}
+.navigateur .navigateur-header .tabs .tab button:hover {
+  background-color: rgba(168, 168, 168, 0.781);
+}
+.navigateur .navigateur-header .tabs .tab button:hover i {
+  color: #fff;
+}
+.navigateur .navigateur-header .button {
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+  border: 1px solid #000;
+  position: relative;
+  top: 10px;
+  left: 10px;
+  display: inline-block;
+  cursor: pointer;
+}
+.navigateur .navigateur-header .button.close {
+  left: 6px;
+  background-color: #FF605C;
+  border-color: #FF4A47;
+}
+.navigateur .navigateur-header .button.minimize {
+  left: 12px;
+  background-color: #FFBD44;
+  border-color: #FFB833;
+}
+.navigateur .navigateur-header .button.maximize {
+  left: 18px;
+  background-color: #00CA4E;
+  border-color: #00B846;
+}
+.navigateur .navigateur-nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 6px;
+  background-color: #ebebeb;
+}
+.navigateur .navigateur-nav i {
+  font-size: 17px;
+  color: rgba(168, 168, 168, 0.781);
+}
+.navigateur .navigateur-nav .search {
+  position: relative;
+}
+.navigateur .navigateur-nav input[type=text] {
+  font-family: inherit;
+  font-size: 14px;
+  height: 35px;
+  border: none;
+  line-height: 1.5;
+  min-inline-size: 20rem;
+  -webkit-padding-start: 2rem;
+          padding-inline-start: 2rem;
+  border-radius: 7px;
+  background-color: #fff;
+  outline: none;
+}
+.navigateur .navigateur-nav .search i {
+  position: absolute;
+  top: 0.65rem;
+  left: 0.55rem;
+  font-size: 16px;
+}
+.navigateur .navigateur-nav button {
+  font-size: 0.625rem;
+  border-radius: 7px;
+  border: none;
+  background: transparent;
+  margin: 0 5px;
+  height: 37px;
+  width: 37px;
+}
+.navigateur .navigateur-nav button:hover {
+  background-color: #c9c9c9;
+  cursor: pointer;
+}
+.navigateur .navigateur-nav button:hover i {
+  color: #fff;
+}
+.navigateur .navigateur-nav [aria-label=account] {
+  margin-left: auto;
+}
+.navigateur .navigateur-body {
+  height: calc(100% - 41px);
+  color: var(--text-color);
+  border-bottom-right-radius: 7px;
+  border-bottom-left-radius: 7px;
 }/*# sourceMappingURL=style.css.map */
