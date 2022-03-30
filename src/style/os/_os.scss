@@ -11,6 +11,7 @@
   background: rgba(233, 233, 233, 0.5);
   backdrop-filter: blur(50px);
   -webkit-backdrop-filter: blur(50px);
+  user-select: none;
 
   i {
     display: contents;
@@ -52,7 +53,7 @@
     align-items: center;
     justify-content: space-evenly;
     width: 380px;
-    margin-right: 20px;
+    margin-right: 10px;
 
     img {
       height: 23px;
@@ -103,8 +104,9 @@
   position: absolute;
   bottom: 20px;
   left: 50%;
-  z-index: 10;
+  z-index: 0;
   transform: translateX(-50%);
+  user-select: none;
 
   .dock-container {
     padding: 3px;
@@ -206,8 +208,13 @@
   }
 }
 
+@media (max-width: 1024px) {
+  .menu-bar .right .menu-ico {
+    display: none;
+  }
+}
+
 @media (max-width: 880px) {
-  .menu-bar .right .menu-ico,
   .menu-bar .right .menu-time {
     display: none;
   }

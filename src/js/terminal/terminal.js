@@ -21,6 +21,11 @@ const Terminal = (commands) => {
   if (window.innerWidth > 880) {
     draggable(terminalEl, ".terminal-header");
   }
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 880) {
+      draggable(terminalEl, ".terminal-header");
+    }
+  });
 
   commands.forEach((c) => {
     commandsList.push(c.command);
@@ -192,8 +197,8 @@ const Terminal = (commands) => {
     const zIndex = parseInt(window.getComputedStyle(terminalEl)['zIndex']);
     const navZIndex = parseInt(window.getComputedStyle(navigateur)['zIndex']);
     if(zIndex <= navZIndex) {
-      const newZIndex = zIndex + 1;
-      terminalEl.style.zIndex = `${newZIndex + 1}`;
+      const newZIndex = zIndex + 2;
+      terminalEl.style.zIndex = `${newZIndex}`;
     }
   }
 

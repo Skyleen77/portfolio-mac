@@ -69,13 +69,29 @@
         <div class="button maximize"></div>
         
         <div class="tabs">
-          <div class="tab">
-            <i class="fab fa-chrome"></i>
-            &nbsp;&nbsp;&nbsp;&nbsp;Nouvel onglet&nbsp;&nbsp;&nbsp;&nbsp;
-            <button>
-              <i class="fas fa-times"></i>
-            </button>
+          <div class="tabs-container">
+            <div class="tab active" data-target="#tab1">
+              <i class="fab fa-chrome"></i>
+              <span>Nouvel onglet</span>
+              <div class="close-btn">
+                <button>
+                  <i class="fas fa-times"></i>
+                </button>
+              </div>
+            </div>
+            <div class="tab" data-target="#tab2">
+              <img src="src/img/avatar.png">
+              <span>Portfolio React</span>
+              <div class="close-btn">
+                <button>
+                  <i class="fas fa-times"></i>
+                </button>
+              </div>
+            </div>
           </div>
+          <button class="new-page">
+            <i class="fas fa-plus"></i>
+          </button>
         </div>
       </div>
 
@@ -88,9 +104,6 @@
         </button>
         <button aria-label="reload">
           <i class="fas fa-redo"></i>
-        </button>
-        <button aria-label="homepage">
-          <i class="fas fa-home"></i>
         </button>
         <div class="search">
           <input type="text" placeholder="Effectuez une recherche ou saisissez une URL" />
@@ -107,8 +120,12 @@
         </button>
       </nav>
 
-      <div class="navigateur-body">
-        
+      <div class="navigateur-body" id="tab1">
+        tab 1
+      </div>
+
+      <div class="navigateur-body" id="tab2">
+        <iframe frameborder="0" style="height: 100%; width: 100%;" src="https://www.elliot-sutton.com/"></iframe>
       </div>
     </div>
 
@@ -173,7 +190,7 @@
             <div class="name">Contacts</div>
             <img class="ico" src="./src/img/contacts.png" alt="contacts icon">
           </li>
-          <li class="li-5">
+          <li class="li-5 mobile-none">
             <div class="name">Notes</div>
             <img class="ico" src="./src/img/notes.png" alt="notes icon">
           </li>
@@ -194,7 +211,7 @@
             <img class="ico" src="./src/img/appstore.png" alt="appstore icon">
           </li>
           <li class="li-10 li-google">
-            <div class="name">Google Chrome</div>
+            <div class="name">Chrome</div>
             <img class="ico" src="./src/img/chrome.png" alt="google icon">
           </li>
           <li class="li-bin li-11 mobile-none">

@@ -2,13 +2,15 @@ const MacOS = () => {
 
   const time = document.querySelector('.menu-time');
   const icons = document.querySelectorAll(".ico");
-  const options = {weekday: "short", month: "long", day: "2-digit", hour: "2-digit", minute: "2-digit"};
 
-  let date = new Date();
-  date = date.toLocaleDateString('fr-FR', options);
-  date = date.replace(date.charAt(0), date.charAt(0).toUpperCase());
-  
-  time.textContent = date;
+  setInterval(() => {
+    const options = {weekday: "short", month: "long", day: "2-digit", hour: "2-digit", minute: "2-digit"};
+    let date = new Date();
+    date = date.toLocaleDateString('fr-FR', options);
+    date = date.replace(date.charAt(0), date.charAt(0).toUpperCase());
+    
+    time.textContent = date;
+  }, 1000);
 
   icons.forEach((item, index) => {
     item.addEventListener("mouseover", (e) => {

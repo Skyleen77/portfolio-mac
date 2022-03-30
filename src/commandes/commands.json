@@ -3,7 +3,7 @@
     "command":"help",
     "responseType":"list",
     "value":[
-      "<code>a-propos</code> : Mes information personnelles",
+      "<code>a propos</code> : Mes information personnelles",
       "<code>clear</code> : Effacer les données du terminal",
       "<code>experiences</code> : Liste de mes expériences",
       "<code>formations</code> : Liste de mes formations",
@@ -14,7 +14,7 @@
     ]
   },
   {
-    "command":"a-propos",
+    "command":"a propos",
     "responseType":"text",
     "value":[
       "nom: Sutton",

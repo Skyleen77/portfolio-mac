@@ -4,18 +4,55 @@ const Browser = () => {
   const navigateur = document.querySelector('.navigateur');
   const terminal = document.querySelector('.terminal');
   const navigateurIcon = document.querySelector('.li-google');
+  const tabs =  document.querySelectorAll('.tab');
+
+  function targetTab(tab) {
+    const target = document.querySelector(tab.dataset.target);
+    const targets = document.querySelectorAll('.navigateur-body');
+
+    targets.forEach(e => {
+      e.classList.remove('active');
+    });
+    
+    target.classList.add('active');
+  }
+
+  tabs[0].classList.add('active');
+  targetTab(tabs[0]);
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      if(!tab.classList.contains('active')) {
+        tabs.forEach(tabTest => {
+          if(tabTest.classList.contains('active')) {
+            tabTest.classList.remove('active');
+          }
+        });
+
+        tab.classList.add('active');
+        if(tab.dataset.target) {
+          targetTab(tab);
+        }
+      }
+    });
+  });
 
   // draggable
   if (window.innerWidth > 880) {
     draggable(navigateur, ".navigateur-header");
   }
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 880) {
+      draggable(navigateur, ".navigateur-header");
+    }
+  });
 
   function toIndexTop() {
     const zIndex = parseInt(window.getComputedStyle(terminal)['zIndex']);
     const navZIndex = parseInt(window.getComputedStyle(navigateur)['zIndex']);
     if(zIndex >= navZIndex) {
       const newZIndex = zIndex + 1;
-      navigateur.style.zIndex = `${newZIndex + 1}`;
+      navigateur.style.zIndex = `${newZIndex}`;
     }
   }
 
