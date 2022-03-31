@@ -4,6 +4,8 @@
     "responseType":"list",
     "value":[
       "<code>a propos</code> : Mes information personnelles",
+      "<code>email</code> : Mon email",
+      "<code>linkedin</code> : Mon profil Linkedin",
       "<code>clear</code> : Effacer les données du terminal",
       "<code>experiences</code> : Liste de mes expériences",
       "<code>formations</code> : Liste de mes formations",
@@ -23,6 +25,21 @@
       "<br>statut: Développeur Web Fullstack Freelance",
       "<br>formation: Bac +3",
       "localisation: Melun, France"
+    ]
+  },
+  {
+    "command":"email",
+    "responseType":"text",
+    "value":[
+      "perso: elsk8@outlook.fr",
+      "<br>pro: contact@skyleen.fr"
+    ]
+  },
+  {
+    "command":"linkedin",
+    "responseType":"text",
+    "value":[
+      "Lien: <a href=\"https://www.linkedin.com/in/elliot-sutton/\" target=\"blank\">https://www.linkedin.com/in/elliot-sutton/</a>"
     ]
   },
   {

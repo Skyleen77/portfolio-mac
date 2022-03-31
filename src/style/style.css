@@ -74,6 +74,10 @@ ul {
   transition: transform 0.4s, -webkit-transform 0.4s;
   z-index: 1;
 }
+.terminal a {
+  text-decoration: none;
+  color: var(--link-color);
+}
 .terminal.open {
   -webkit-transform: scale(100%);
           transform: scale(100%);
@@ -195,10 +199,6 @@ ul {
   border: 1px solid;
   padding: 4px;
   width: 100%;
-}
-.terminal .terminal-body .terminal-response table a {
-  text-decoration: none;
-  color: var(--link-color);
 }
 .terminal .terminal-body .terminal-response table thead th {
   font-weight: normal;

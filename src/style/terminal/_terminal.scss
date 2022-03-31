@@ -1,6 +1,11 @@
 .terminal {
   @include screenBase;
 
+  a {
+    text-decoration: none;
+    color: var(--link-color);
+  }
+
   &.open {
     transform: scale(100%);
   }
@@ -126,11 +131,6 @@
         border: 1px solid;
         padding: 4px;
         width: 100%;
-
-        a {
-          text-decoration: none;
-          color: var(--link-color);
-        }
 
         thead {
           th {
