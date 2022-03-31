@@ -2,6 +2,30 @@ const MacOS = () => {
 
   const time = document.querySelector('.menu-time');
   const icons = document.querySelectorAll(".ico");
+  const extendBtn = document.querySelector('[data-extend]');
+
+  extendBtn.innerHTML = '<i class="fas fa-expand"></i>';
+
+  function getFullscreenElement() {
+    return document.fullscreenElement
+        || document.webkitFullscreenElement
+        || document.mozFullscreenElement
+        || document.msFullscreenElement;
+  }
+
+  function toggleFullscreen() {
+    if(getFullscreenElement()) {
+      document.exitFullscreen();
+      extendBtn.innerHTML = '<i class="fas fa-expand"></i>';
+    } else {
+      document.documentElement.requestFullscreen().catch(console.log);
+      extendBtn.innerHTML = '<i class="fas fa-compress"></i>';
+    }
+  }
+
+  extendBtn.addEventListener('click', () => {
+    toggleFullscreen();
+  });
 
   setInterval(() => {
     const options = {weekday: "short", month: "long", day: "2-digit", hour: "2-digit", minute: "2-digit"};

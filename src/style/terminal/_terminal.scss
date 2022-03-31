@@ -116,7 +116,6 @@
         outline: none;
         font-size: 15px;
         width: calc(100% - 230px);
-        caret-color: gray;
       }
     }
 
@@ -160,9 +159,12 @@
 
 @media (max-width: 880px) {
   .terminal {
+    height: 80% !important;
+    width: 90% !important;
 
-    height: 80%;
-    width: 90%;
+    .terminal-header {
+      cursor: unset;
+    }
 
     .terminal-body {
       .terminal-banner {

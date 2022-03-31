@@ -187,7 +187,6 @@ ul {
   outline: none;
   font-size: 15px;
   width: calc(100% - 230px);
-  caret-color: gray;
 }
 .terminal .terminal-body .terminal-response {
   margin: 8px 0 16px 0;
@@ -216,8 +215,11 @@ ul {
 
 @media (max-width: 880px) {
   .terminal {
-    height: 80%;
-    width: 90%;
+    height: 80% !important;
+    width: 90% !important;
+  }
+  .terminal .terminal-header {
+    cursor: unset;
   }
   .terminal .terminal-body .terminal-banner pre {
     font-size: 10px;
@@ -833,29 +835,19 @@ ul {
   font-size: 14px;
 }
 .navigateur .navigateur-nav button {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
   font-size: 0.625rem;
-  border-radius: 9999px;
   border: none;
   background: transparent;
   margin: 0 5px;
-  margin-top: 2px;
-  height: 25px;
-  width: 25px;
+  margin-top: 1px;
 }
-.navigateur .navigateur-nav button:hover {
+.navigateur .navigateur-nav button i {
+  padding: 5px;
+  border-radius: 9999px;
+}
+.navigateur .navigateur-nav button i:hover {
   background-color: #c9c9c9;
   cursor: pointer;
-}
-.navigateur .navigateur-nav button:hover i {
   color: #fff;
 }
 .navigateur .navigateur-nav [aria-label=account] {
@@ -873,8 +865,11 @@ ul {
 
 @media (max-width: 880px) {
   .navigateur {
-    height: 80%;
-    width: 90%;
+    height: 80% !important;
+    width: 90% !important;
+  }
+  .navigateur .navigateur-header {
+    cursor: unset;
   }
 }
 @media (max-width: 640px) {
@@ -888,8 +883,13 @@ ul {
   }
   .navigateur .navigateur-body {
     max-width: unset;
-    width: 90vw;
-    height: 70.5vh;
+    width: 90vw !important;
+    height: 70.5vh !important;
     margin-bottom: 7vh;
   }
+}
+.dinogame,
+.dinogame iframe {
+  height: 100%;
+  width: 100%;
 }/*# sourceMappingURL=style.css.map */
