@@ -5,6 +5,6 @@
 ![](https://img.shields.io/badge/Style-Sass-informational?style=flat&logo=Sass&logoColor=white&color=c76395)
 ![](https://img.shields.io/badge/Code-JavaScript-informational?style=flat&logo=JavaScript&logoColor=white&color=f3df49)
 
-Creation of a Mac OS style portfolio, full Javascript Vanilla. Integrated terminal, chrome simulation, games and more...
+Creation of a Mac OS style portfolio, Vanilla only. Integrated terminal, chrome simulation, games and more...
 
 Type `help` in the terminal to see the list of available commands.
