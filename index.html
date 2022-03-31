@@ -5,7 +5,7 @@
     <meta content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" name="viewport"/>
     <meta content="ie=edge" http-equiv="X-UA-Compatible"/>
     <meta content="Elliot Sutton - Développeur Web Fullstack" name="title"/>
-    <meta content="Portfolio terminal" name="description"/>
+    <meta content="Portfolio style Mac OS" name="description"/>
     <meta content="text/html; charset=utf-8" http-equiv="Content-Type"/>
     <meta content="Français" name="language"/>
     <meta content="Elliot Sutton" name="author"/>
@@ -16,6 +16,8 @@
     <link crossorigin="anonymous" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" referrerpolicy="no-referrer" rel="stylesheet"/>
 </head>
 <body>
+
+    <!-- TERMINAL -->
     <div class="terminal open">
         <div class="terminal-header">
             <div class="button close"></div>
@@ -24,7 +26,7 @@
         </div>
         <div class="terminal-body">
             <div class="terminal-banner">
-                <pre>
+              <pre>
      ___           ___       ___                    ___                   
     /  /\         /  /\     /  /\       ___        /  /\          ___     
    /  /::\       /  /:/    /  /:/      /__/\      /  /::\        /__/\    
@@ -48,20 +50,23 @@
   \  \:\/:/     \  \:\/:/     /__/:/        /__/:/        \  \:\/:/       |__|::/  
    \  \::/       \  \::/      \__\/         \__\/          \  \::/        /__/:/   
     \__\/         \__\/                                     \__\/         \__\/  
-                </pre>
-                <p>Bienvenue sur mon portfolio !
-                    <br>
-                    <br>Pour afficher les commandes disponibles tapez <code>help</code>.
-                    <br><em>⏎</em> : valide une commande
-                    <br><em>↹</em> : auto-complète une commande
-                    <br><em>↑</em> : remonte dans l'historique des commandes
-                    <br><em>↓</em> : redescend dans l'historique des commandes
-                </p>
+              </pre>
+              <p>Bienvenue sur mon terminal !
+                  <br>
+                  <br>Pour afficher les commandes disponibles tapez <code>help</code>.
+                  <br><em>⏎</em> : valide une commande
+                  <br><em>↹</em> : auto-complète une commande
+                  <br><em>↑</em> : remonte dans l'historique des commandes
+                  <br><em>↓</em> : redescend dans l'historique des commandes
+              </p>
             </div>
             <div id="terminal"></div>
         </div>
     </div>
+    <!-- /TERMINAL -->
 
+
+    <!-- BORWSER -->
     <div class="navigateur">
       <div class="navigateur-header">
         <div class="button close"></div>
@@ -102,7 +107,7 @@
         <button aria-label="go forward">
           <i class="fas fa-arrow-right"></i>
         </button>
-        <button aria-label="reload">
+        <button aria-label="reload" data-reload>
           <i class="fas fa-redo"></i>
         </button>
         <div class="search">
@@ -120,18 +125,23 @@
         </button>
       </nav>
 
-      <div class="navigateur-body" id="tab1">
+      <div class="navigateur-body int" id="tab1">
         <div class="dinogame">
           <iframe frameborder="0"></iframe>
         </div>
       </div>
 
-      <div class="navigateur-body" id="tab2">
+      <div class="navigateur-body ext" id="tab2">
         <iframe frameborder="0" style="height: 100%; width: 100%;" src="https://www.elliot-sutton.com/"></iframe>
       </div>
     </div>
+    <!-- /BORWSER -->
 
-    <div class="menu-bar">
+
+    <!-- OS -->
+
+      <!-- MENU BAR -->
+      <div class="menu-bar">
         <div class="left">
           <i class="fab fa-apple"></i>
           <span class="menus active">Code</span>
@@ -141,7 +151,7 @@
           <span class="menus">Affichage</span>
           <span class="menus">Atteindre</span>
           <span class="menus">Exécuter</span>
-          <span class="menus">Terminal</span>
+          <span class="menus menu-terminal">Terminal</span>
           <span class="menus">Fenêtre</span>
           <span class="menus">Aide</span>
         </div>
@@ -171,7 +181,9 @@
       
         </div>
       </div>
-      
+      <!-- /MENU BAR -->
+    
+      <!-- DOCK -->
       <div class="dock">
         <div class="dock-container">
           <li class="li-1">
@@ -221,6 +233,9 @@
       
         </div>
       </div>
+      <!-- /DOCK -->
+      
+    <!-- /OS -->
 
     <script src="src/js/index.js" type="module"></script>
 </body>

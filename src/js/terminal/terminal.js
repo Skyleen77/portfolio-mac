@@ -5,17 +5,19 @@ const Terminal = (commands) => {
   let commandsList = [];
   const customCommands = ["clear", "dark", "light", "cv"];
   const hiddenCommands = [];
-  const commandsHistory = [];
+  let commandsHistory = [];
   let historyMode = false;
   let historyIndex = -1;
+  const terminalBanner = document.querySelector(".terminal-banner");
   const terminalBody = document.querySelector(".terminal-body");
   const terminalIcon = document.querySelector(".li-terminal");
   const terminalEl = document.querySelector(".terminal");
+  const terminalCommands = document.querySelector("#terminal");
+  const menuTerminal = document.querySelector('.menu-terminal');
 
   if(terminalEl.classList.contains('open')) {
     terminalIcon.classList.add('li-active');
   }
-
 
   // draggable
   if (window.innerWidth > 880) {
@@ -187,7 +189,7 @@ const Terminal = (commands) => {
         getCV();
         return "Le CV va être téléchargé.";
       case "clear":
-        terminalBody.innerHTML = `<div id="terminal"></div>`;
+        resetTerminal();
         return;
     }
   }
@@ -200,6 +202,21 @@ const Terminal = (commands) => {
       const newZIndex = zIndex + 2;
       terminalEl.style.zIndex = `${newZIndex}`;
     }
+  }
+
+  function openTerminal() {
+    terminalEl.classList.add('open');
+    terminalIcon.classList.add('li-active');
+    toIndexTop();
+  }
+
+  function resetHistory() {
+    commandsHistory = [];
+  }
+
+  function resetTerminal() {
+    terminalCommands.innerHTML = '';
+    console.log(terminalCommands.innerHTML);
   }
 
   terminalEl.addEventListener('click', () => {
@@ -216,6 +233,9 @@ const Terminal = (commands) => {
   terminalEl.querySelector(".close").addEventListener("click", function (e) {
     terminalEl.classList.remove('open');
     terminalIcon.classList.remove('li-active');
+    resetTerminal();
+    resetHistory();
+    addNewLine();
   });
 
   terminalEl.querySelector(".minimize").addEventListener("click", function (e) {
@@ -231,9 +251,11 @@ const Terminal = (commands) => {
   });
 
   terminalIcon.addEventListener("click", function (e) {
-    terminalEl.classList.add('open');
-    terminalIcon.classList.add('li-active');
-    toIndexTop();
+    openTerminal();
+  });
+
+  menuTerminal.addEventListener("click", function (e) {
+    openTerminal();
   });
 }
 

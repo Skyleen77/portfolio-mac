@@ -5,6 +5,7 @@ const Browser = () => {
   const terminal = document.querySelector('.terminal');
   const navigateurIcon = document.querySelector('.li-google');
   const tabs =  document.querySelectorAll('.tab');
+  const reloadBtn = document.querySelector('[data-reload]');
 
   function targetTab(tab) {
     const target = document.querySelector(tab.dataset.target);
@@ -56,6 +57,19 @@ const Browser = () => {
     }
   }
 
+  function resetPage() {
+    const targets = document.querySelectorAll('.navigateur-body');
+    targets.forEach(target => {
+      if(target.classList.contains('active')) {
+        if(target.classList.contains('int')) {
+          target.querySelector('iframe').contentWindow.location.reload(true);
+        } else {
+          target.querySelector('iframe').src = target.querySelector('iframe').src;
+        }
+      }
+    });
+  }
+
   navigateur.addEventListener('click', () => {
     toIndexTop();
   });
@@ -63,6 +77,7 @@ const Browser = () => {
   navigateur.querySelector(".close").addEventListener("click", function (e) {
     navigateur.classList.remove('open');
     navigateurIcon.classList.remove('li-active');
+    resetPage();
   });
 
   navigateur.querySelector(".minimize").addEventListener("click", function (e) {
@@ -81,6 +96,10 @@ const Browser = () => {
     navigateur.classList.add('open');
     navigateurIcon.classList.add('li-active');
     toIndexTop();
+  });
+
+  reloadBtn.addEventListener('click', () => {
+    resetPage();
   });
 }
 

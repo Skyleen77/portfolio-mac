@@ -13,18 +13,20 @@ const MacOS = () => {
         || document.msFullscreenElement;
   }
 
-  function toggleFullscreen() {
+  extendBtn.addEventListener('click', () => {
     if(getFullscreenElement()) {
       document.exitFullscreen();
-      extendBtn.innerHTML = '<i class="fas fa-expand"></i>';
     } else {
       document.documentElement.requestFullscreen().catch(console.log);
-      extendBtn.innerHTML = '<i class="fas fa-compress"></i>';
     }
-  }
+  });
 
-  extendBtn.addEventListener('click', () => {
-    toggleFullscreen();
+  document.addEventListener('fullscreenchange', () => {
+    if(getFullscreenElement()) {
+      extendBtn.innerHTML = '<i class="fas fa-compress"></i>';
+    } else {
+      extendBtn.innerHTML = '<i class="fas fa-expand"></i>';
+    }
   });
 
   setInterval(() => {
