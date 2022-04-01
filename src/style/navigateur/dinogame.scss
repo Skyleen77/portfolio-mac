@@ -9,6 +9,7 @@ body {
   margin: 0;
   display: flex;
   justify-content: center;
+  align-items: center;
   flex-direction: column;
   min-height: 100vh;
 }
@@ -74,5 +75,5 @@ body {
 
 .fake-error {
   margin-top: 40px;
-  margin-left: 15%;
+  width: 90%;
 }

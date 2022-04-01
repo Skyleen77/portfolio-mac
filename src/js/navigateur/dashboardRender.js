@@ -10,25 +10,7 @@ const DashboardRender = () => {
         <link href="./src/style/style.css" rel="stylesheet">
       </head>
       <body>
-        <div class='dashboard'>
-          <h1>Dashboard</h1>
-          <div class='grid' data-grid>
-            <div class='grid-item'></div>
-            <div class='grid-item'></div>
-            <div class='grid-item'></div>
-            <div class='grid-item'></div>
-
-            <div class='grid-item'></div>
-            <div class='grid-item'></div>
-            <div class='grid-item'></div>
-            <div class='grid-item'></div>
-
-            <div class='grid-item'></div>
-            <div class='grid-item'></div>
-            <div class='grid-item'></div>
-            <div class='grid-item'></div>
-          </div>
-        </div>
+        <div class='dashboard' data-dashboard></div>
 
         <script src="./src/js/navigateur/dashboard.js" type="module"></script>
       </body>

@@ -3,7 +3,7 @@
   --text-color: #fff;
   --link-color: #00DDFF;
   --username-color: #5BD2D6;
-  --terminal-bg: #00000090;
+  --terminal-bg: rgba(0,0,0,82%);
   --terminal-header-bg: #FAF6FA;
   --scollbar-color: #ffffff95;
 }
@@ -924,29 +924,68 @@ ul {
 #dashboard body {
   background: #fff !important;
   display: block !important;
-  overflow-y: auto !important;
-  height: unset !important;
+  width: 100% !important;
+  height: 100% !important;
+}
+#dashboard .dashboard {
+  font-family: Arial, Helvetica, sans-serif;
+  height: 100%;
+  width: 100%;
 }
 #dashboard .dashboard h1 {
   text-align: center;
   font-size: 40px;
-  font-family: Arial, Helvetica, sans-serif;
-  margin: 50px 0;
+  margin-top: 60px;
+  margin-bottom: 0;
 }
 #dashboard .dashboard .grid {
   max-width: 1300px;
-  width: 80%;
+  width: 90%;
   height: auto;
-  margin: 30px auto;
+  margin: 0 auto;
+  padding: 60px 0;
   display: grid;
-  grid-template-columns: repeat(auto-fill, 300px);
+  grid-template-columns: repeat(auto-fill, 400px);
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
   grid-gap: 20px;
 }
 #dashboard .dashboard .grid .grid-item {
-  width: 300px;
-  height: 200px;
-  background-color: #333;
+  width: 400px;
+  height: 250px;
+  border-radius: 7px;
+  -webkit-box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.08);
+          box-shadow: 0 0 8px 2px rgba(0, 0, 0, 0.08);
+  cursor: pointer;
+}
+#dashboard .dashboard .grid .grid-item .grid-item-overlay {
+  height: 100%;
+  width: 100%;
+  background-color: transparent;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 7px;
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+}
+#dashboard .dashboard .grid .grid-item span {
+  color: #fff;
+  font-size: 35px;
+  opacity: 0;
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+}
+#dashboard .dashboard .grid .grid-item:hover .grid-item-overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+#dashboard .dashboard .grid .grid-item:hover span {
+  opacity: 1;
 }/*# sourceMappingURL=style.css.map */

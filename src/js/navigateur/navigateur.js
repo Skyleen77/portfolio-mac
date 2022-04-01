@@ -11,6 +11,8 @@ const Browser = () => {
   let tabContainer = document.querySelector('.tabs-container');
   let addTabBtn = document.querySelector('.new-page');
   let tabsBody = document.querySelectorAll('.navigateur-body');
+  let backBtn = document.querySelector('[data-back]');
+  let forwardBtn = document.querySelector('[data-forward]');
   const countTab = tabs.length + 1;
 
   tabs[0].classList.add('active');
@@ -158,9 +160,8 @@ const Browser = () => {
       toIndexTop();
     });
   
-    reloadBtn.addEventListener('click', () => {
-      resetPage();
-    });
+    reloadBtn.addEventListener('click', resetPage);
+    backBtn.addEventListener('click', resetPage);
   }
 
   function resetVar() {
@@ -173,6 +174,8 @@ const Browser = () => {
     navigateurIcon = document.querySelector('.li-google');
     reloadBtn = document.querySelector('[data-reload]');
     terminal = document.querySelector('.terminal');
+    backBtn = document.querySelector('[data-back]');
+    forwardBtn = document.querySelector('[data-forward]');
   }
 
   function displayPopup(tabsBody, displayContent) {
