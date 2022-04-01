@@ -8,11 +8,6 @@
   --scollbar-color: #ffffff95;
 }
 
-html,
-body {
-  height: 100%;
-}
-
 @font-face {
   font-family: "San Francisco";
   font-weight: 400;
@@ -23,6 +18,11 @@ body {
   font-weight: 800;
   src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-bold-webfont.woff");
 }
+html,
+body {
+  height: 100%;
+}
+
 body {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -73,6 +73,8 @@ ul {
   transition: transform 0.4s;
   transition: transform 0.4s, -webkit-transform 0.4s;
   z-index: 1;
+  min-height: 200px;
+  min-width: 200px;
 }
 .terminal a {
   text-decoration: none;
@@ -593,6 +595,41 @@ ul {
     display: none !important;
   }
 }
+.contact-header {
+  cursor: move;
+  position: absolute;
+  height: 40px;
+  width: 100%;
+  padding: 0 8px;
+}
+.contact-header .button {
+  height: 10px;
+  width: 10px;
+  border-radius: 50%;
+  border: 1px solid #000;
+  position: relative;
+  top: 10px;
+  left: 10px;
+  display: inline-block;
+  cursor: pointer;
+}
+.contact-header .button.close {
+  left: 6px;
+  background-color: #FF605C;
+  border-color: #FF4A47;
+  cursor: pointer;
+}
+.contact-header .button.minimize {
+  left: 12px;
+  background-color: #FFBD44;
+  border-color: #FFB833;
+}
+.contact-header .button.maximize {
+  left: 18px;
+  background-color: #00CA4E;
+  border-color: #00B846;
+}
+
 .navigateur {
   position: absolute;
   z-index: 2;
@@ -608,6 +645,8 @@ ul {
   transition: transform 0.4s;
   transition: transform 0.4s, -webkit-transform 0.4s;
   z-index: 1;
+  min-height: 200px;
+  min-width: 200px;
   background: #fff;
   font-family: "San Francisco";
 }
@@ -988,4 +1027,271 @@ ul {
 }
 #dashboard .dashboard .grid .grid-item:hover span {
   opacity: 1;
+}
+
+:root {
+  --text-color: #fff;
+  --link-color: #00DDFF;
+  --username-color: #5BD2D6;
+  --terminal-bg: rgba(0,0,0,82%);
+  --terminal-header-bg: #FAF6FA;
+  --scollbar-color: #ffffff95;
+}
+
+@font-face {
+  font-family: "San Francisco";
+  font-weight: 400;
+  src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-regular-webfont.woff");
+}
+@font-face {
+  font-family: "San Francisco";
+  font-weight: 800;
+  src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-bold-webfont.woff");
+}
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.contact-wrapper {
+  position: absolute;
+  z-index: 2;
+  resize: both;
+  overflow: hidden;
+  height: 80%;
+  width: 80%;
+  border-radius: 7px;
+  -webkit-transform: scale(0);
+          transform: scale(0);
+  -webkit-transition: -webkit-transform 0.4s;
+  transition: -webkit-transform 0.4s;
+  transition: transform 0.4s;
+  transition: transform 0.4s, -webkit-transform 0.4s;
+  z-index: 1;
+  min-height: 200px;
+  min-width: 200px;
+}
+.contact-wrapper.open {
+  -webkit-transform: scale(100%);
+          transform: scale(100%);
+}
+.contact-wrapper.full-screen {
+  height: 100% !important;
+  width: 100% !important;
+  top: 0 !important;
+  left: 0 !important;
+  resize: none;
+  border-radius: 0;
+}
+
+.contact {
+  background: transparent;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 100%;
+  font-weight: 500;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.contact .contact-sidebar {
+  width: 30%;
+  background: rgba(234, 230, 236, 0.98);
+}
+.contact .contact-sidebar::before {
+  content: "";
+  position: absolute;
+  width: 30%;
+  height: 100%;
+}
+.contact .contact-sidebar .contact-sidebar-container {
+  padding: 15px;
+  margin-top: 10px;
+}
+.contact .contact-sidebar .contact-sidebar-container .contact-sidebar-title {
+  font-size: 13px;
+  color: #A7A5AA;
+  padding-left: 5px;
+}
+.contact .contact-sidebar .contact-sidebar-container .contact-sidebar-content {
+  color: #fff;
+  padding: 7px 15px;
+  padding-top: 8px;
+  background: radial-gradient(#2f69f6, #2a63f6);
+  cursor: pointer;
+  border-radius: 7px;
+}
+.contact .contact-body {
+  width: 70%;
+  background-color: #fff;
+  border-left: 1px solid #C3C0C5;
+}
+.contact .contact-body .contact-body-content {
+  padding: 25px;
+  padding-top: 50px;
+  background-color: #fff;
+}
+.contact .contact-body .contact-body-content .contact-body-content-item {
+  width: 75%;
+  margin: 0 auto;
+}
+.contact .contact-body .contact-body-content .contact-body-content-item .form-control {
+  width: 100%;
+}
+.contact .contact-body .contact-body-content .contact-body-content-item .form-control input:not([type=submit]), .contact .contact-body .contact-body-content .contact-body-content-item .form-control textarea {
+  border-radius: 4px;
+  position: relative;
+  vertical-align: middle;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  width: 100%;
+  margin: 0;
+  padding: 5px 10px;
+  background: none;
+  background-image: none;
+  border-width: 2px;
+  border-style: solid;
+  border-radius: 7px;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  line-height: 24px;
+  font-size: 16px;
+  font-weight: 400;
+  outline: none;
+  -webkit-transition: border-color 100ms ease;
+  transition: border-color 100ms ease;
+  border-color: #e6e6e6;
+  color: #272727;
+  margin-bottom: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.contact .contact-body .contact-body-content .contact-body-content-item .form-control textarea {
+  resize: vertical;
+}
+.contact .contact-body .contact-body-content .contact-body-content-item .form-control input[type=submit] {
+  font-size: 16px;
+  border: none;
+  outline: none;
+  background: radial-gradient(#2f69f6, #2a63f6);
+  color: #fff;
+  padding: 9px 15px;
+  padding-top: 10px;
+  border-radius: 7px;
+}
+.contact .contact-body .contact-body-title {
+  color: #9c9c9c;
+}
+.contact .contact-body .contact-body-subtitle {
+  color: #272727;
+  padding-left: 8px;
+}
+.contact .contact-body .contact-body-subtitle i {
+  color: #2f69f6;
+}
+.contact .contact-body .contact-body-subtitle i:last-child {
+  padding-left: 8px;
+}
+.contact .contact-body hr {
+  height: 2px;
+  background-color: #e6e6e6;
+  border: none;
+}
+.contact .contact-body .contact-body-header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 0 auto;
+  width: 200px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 40px;
+}
+.contact .contact-body .contact-body-header img {
+  height: 80px;
+  width: 80px;
+  border-radius: 9999px;
+}
+.contact .contact-body .contact-body-header span {
+  margin-left: 20px;
+  font-size: 18px;
+}
+.contact .contact-body .contact-body-buttons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin: 0 auto;
+  width: 300px;
+  margin-top: 30px;
+}
+.contact .contact-body .contact-body-buttons .contact-body-button {
+  cursor: pointer;
+}
+.contact .contact-body .contact-body-buttons .contact-body-button a {
+  text-decoration: none;
+}
+.contact .contact-body .contact-body-buttons .contact-body-button span {
+  color: #2f69f6;
+  font-size: 13px;
+}
+.contact .contact-body .contact-body-buttons .contact-body-button i {
+  background: radial-gradient(#2f69f6, #2a63f6);
+  border-radius: 9999px;
+  height: 40px;
+  width: 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #fff;
+  margin: 0 auto;
+  margin-bottom: 5px;
+}
+
+@media screen and (max-width: 600px) {
+  .contact {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  .contact .contact-sidebar,
+.contact .contact-body {
+    width: 100% !important;
+  }
+  .contact .contact-sidebar {
+    height: 30%;
+  }
+  .contact .contact-sidebar::before {
+    width: 100% !important;
+    height: 30% !important;
+  }
+  .contact .contact-body {
+    height: 70%;
+    border-top: 1px solid #C3C0C5;
+    border-left: none !important;
+  }
+}
+@media screen and (max-width: 400px) {
+  .contact-body-buttons {
+    width: 200px !important;
+  }
+
+  .contact-body .contact-body-content {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
 }/*# sourceMappingURL=style.css.map */

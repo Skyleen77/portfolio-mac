@@ -1,0 +1,22 @@
+$border-radius: 7px;
+
+:root {
+  --text-color: #fff;
+  --link-color: #00DDFF;
+  --username-color: #5BD2D6;
+  --terminal-bg: rgba(0,0,0,82%);
+  --terminal-header-bg: #FAF6FA;
+  --scollbar-color: #ffffff95;
+}
+
+@font-face {
+  font-family: "San Francisco";
+  font-weight: 400;
+  src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-regular-webfont.woff");
+}
+
+@font-face {
+  font-family: "San Francisco";
+  font-weight: 800;
+  src: url("https://applesocial.s3.amazonaws.com/assets/styles/fonts/sanfrancisco/sanfranciscodisplay-bold-webfont.woff");
+}

@@ -25,6 +25,16 @@ const Browser = () => {
 
   addingTab();
 
+  // draggable
+  if (window.innerWidth > 880) {
+    draggable(navigateur, ".navigateur-header");
+  }
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 880) {
+      draggable(navigateur, ".navigateur-header");
+    }
+  });
+
   function closeTab(closeBtns) {
     closeBtns.forEach(closeBtn => {
       closeBtn.addEventListener('click', () => { 
@@ -97,16 +107,6 @@ const Browser = () => {
       });
     });
   }
-
-  // draggable
-  if (window.innerWidth > 880) {
-    draggable(navigateur, ".navigateur-header");
-  }
-  window.addEventListener('resize', () => {
-    if (window.innerWidth > 880) {
-      draggable(navigateur, ".navigateur-header");
-    }
-  });
 
   function toIndexTop() {
     const zIndex = parseInt(window.getComputedStyle(terminal)['zIndex']);

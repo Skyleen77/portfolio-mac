@@ -226,3 +226,42 @@
     display: none !important;
   }
 }
+
+.contact-header {
+  cursor: move;
+  position: absolute;
+  height: 40px;
+  width: 100%;
+  padding: 0 8px;
+
+  .button {
+    height: 10px;
+    width: 10px;
+    border-radius: 50%;
+    border: 1px solid #000;
+    position: relative;
+    top: 10px;
+    left: 10px;
+    display: inline-block;
+    cursor: pointer;
+
+    &.close {
+      left: 6px;
+      background-color: #FF605C;
+      border-color: #FF4A47;
+      cursor: pointer;
+    }
+
+    &.minimize {
+      left: 12px;
+      background-color: #FFBD44;
+      border-color: #FFB833;
+    }
+
+    &.maximize {
+      left: 18px;
+      background-color: #00CA4E;
+      border-color: #00B846;
+    }
+  }
+}

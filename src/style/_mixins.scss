@@ -9,6 +9,8 @@
   transform: scale(0);
   transition: transform 0.4s;
   z-index: 1;
+  min-height: 200px;
+  min-width: 200px;
 }
 
 @mixin fullScreen {
