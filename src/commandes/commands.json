@@ -6,6 +6,7 @@
       "<code>a propos</code> : Mes information personnelles",
       "<code>email</code> : Mon email",
       "<code>linkedin</code> : Mon profil Linkedin",
+      "<code>github</code> : Mon profil Github",
       "<code>clear</code> : Effacer les données du terminal",
       "<code>experiences</code> : Liste de mes expériences",
       "<code>formations</code> : Liste de mes formations",
@@ -31,15 +32,22 @@
     "command":"email",
     "responseType":"text",
     "value":[
-      "perso: elsk8@outlook.fr",
-      "<br>pro: contact@skyleen.fr"
+      "perso: <a href='mailto:elsk8@outlook.fr'>elsk8@outlook.fr</a>",
+      "<br>pro: <a href='mailto:contact@skyleen.fr'>contact@skyleen.fr</a>"
     ]
   },
   {
     "command":"linkedin",
-    "responseType":"text",
+    "responseType":"link",
     "value":[
-      "Lien: <a href=\"https://www.linkedin.com/in/elliot-sutton/\" target=\"blank\">https://www.linkedin.com/in/elliot-sutton/</a>"
+      "https://www.linkedin.com/in/elliot-sutton/"
+    ]
+  },
+  {
+    "command":"github",
+    "responseType":"link",
+    "value":[
+      "https://github.com/Skyleen77"
     ]
   },
   {

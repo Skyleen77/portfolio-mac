@@ -70,6 +70,12 @@ const Terminal = (commands) => {
         html = `<pre>${commandObj.value.join("\n")}</pre>`;
       } else if (commandObj.responseType === "text") {
         html = `<p>${commandObj.value.join("\n")}</p>`;
+      } else if (commandObj.responseType === "link") {
+        html = `<p>Vous allez être redirigé vers mon ${command.split(" ")[0]}.</p>`;
+        const a = document.createElement("a");
+        a.href = commandObj.value.join("\n");
+        a.setAttribute("target", "blank");
+        a.click();
       }
     }
     return html;

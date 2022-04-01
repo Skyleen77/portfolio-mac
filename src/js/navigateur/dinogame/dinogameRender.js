@@ -36,6 +36,4 @@ const DinogameRender = () => {
   `;
 }
 
-
-
 export default DinogameRender;

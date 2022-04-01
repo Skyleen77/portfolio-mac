@@ -1,4 +1,5 @@
 import { draggable } from "../draggable.js";
+import DashboardRender from "./dashboardRender.js";
 
 const Browser = () => {
   let navigateur = document.querySelector('.navigateur');
@@ -10,6 +11,7 @@ const Browser = () => {
   let tabContainer = document.querySelector('.tabs-container');
   let addTabBtn = document.querySelector('.new-page');
   let tabsBody = document.querySelectorAll('.navigateur-body');
+  const countTab = tabs.length + 1;
 
   tabs[0].classList.add('active');
   targetTab(tabs[0]);
@@ -23,29 +25,9 @@ const Browser = () => {
 
   function closeTab(closeBtns) {
     closeBtns.forEach(closeBtn => {
-      closeBtn.addEventListener('click', () => {
+      closeBtn.addEventListener('click', () => { 
         setTimeout(() => {
-          const tabDel = closeBtn.parentElement;
-          const tabBodyDel = document.querySelector(tabDel.dataset.target);
-          if(tabDel) {
-            tabDel.remove();
-          }
-          if(tabBodyDel) {
-            tabBodyDel.remove();
-          }
-    
-          let countTabActive = 0;
-          tabs = document.querySelectorAll('.tab');
-          tabs.forEach(tab => {
-            if(tab.classList.contains('active')) {
-              countTabActive += 1;
-            }
-          });
-          if(countTabActive === 0) {
-            console.log(tabs[0]);
-            tabs[0].classList.add('active')
-            targetTab(tabs[0]);
-          }
+          displayPopup(tabsBody, 'Ne fermez pas mes onglets ☹');
         }, 100);
       });
     });
@@ -60,8 +42,6 @@ const Browser = () => {
   }
 
   function addTab(theTabs, theTabsBody, theTabContainer, theNavigateur) {
-    const countTab = theTabs.length + 1;
-
     removeActive(theTabs);
     removeActive(theTabsBody);
 
@@ -80,6 +60,10 @@ const Browser = () => {
         <iframe frameborder="0" style="height: 100%; width: 100%;"></iframe>
       </div>
     `;
+
+    const newTabBody = document.querySelector(`#tab${countTab}`);
+    const newTabIframe = newTabBody.querySelector('iframe');
+    newTabIframe.srcdoc = DashboardRender();
   }
 
   function targetTab(tab) {
@@ -153,6 +137,7 @@ const Browser = () => {
       navigateur.classList.remove('open');
       navigateurIcon.classList.remove('li-active');
       resetPage();
+
     });
   
     navigateur.querySelector(".minimize").addEventListener("click", function (e) {
@@ -190,38 +175,42 @@ const Browser = () => {
     terminal = document.querySelector('.terminal');
   }
 
+  function displayPopup(tabsBody, displayContent) {
+    tabsBody.forEach(tabBody => {
+      if(tabBody.classList.contains('active')) {
+        if(!tabBody.querySelector('.popup-add-page')) {
+          tabBody.innerHTML += `
+            <div class="popup-add-page">
+              <div class="popup-header">
+                <p>Alerte</p>
+              </div>
+              <div class="close-popup">
+                <i class="fas fa-times"></i>
+              </div>
+              <div class="popup-body">
+                <p>${displayContent}</p>
+              </div>
+            </div>
+          `;
+
+          const popupAddPage = tabBody.querySelector('.popup-add-page');
+          const closePopup = popupAddPage.querySelector('.close-popup');
+
+          closePopup.addEventListener('click', () => {
+            popupAddPage.remove();
+          });
+        }
+      }
+    });
+  }
+
   function addingTab() {
     addTabBtn.addEventListener('click', () => {
       addTab(tabs, tabsBody, tabContainer, navigateur);
       resetVar();
 
       addTabBtn.addEventListener('click', () => {
-        tabsBody.forEach(tabBody => {
-          if(tabBody.classList.contains('active')) {
-            if(!tabBody.querySelector('.popup-add-page')) {
-              tabBody.innerHTML += `
-                <div class="popup-add-page">
-                  <div class="popup-header">
-                    <p>Alerte</p>
-                  </div>
-                  <div class="close-popup">
-                    <i class="fas fa-times"></i>
-                  </div>
-                  <div class="popup-body">
-                    <p>Vous ne pouvez pas ouvrir d'autre page</p>
-                  </div>
-                </div>
-              `;
-
-              const popupAddPage = tabBody.querySelector('.popup-add-page');
-              const closePopup = popupAddPage.querySelector('.close-popup');
-
-              closePopup.addEventListener('click', () => {
-                popupAddPage.remove();
-              });
-            }
-          }
-        });
+        displayPopup(tabsBody, 'Vous ne pouvez pas ouvrir de nouvelle onglets !');
       });
 
       tabsMove(tabs);
