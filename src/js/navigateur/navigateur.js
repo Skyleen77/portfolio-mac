@@ -1,42 +1,116 @@
 import { draggable } from "../draggable.js";
 
 const Browser = () => {
-  const navigateur = document.querySelector('.navigateur');
-  const terminal = document.querySelector('.terminal');
-  const navigateurIcon = document.querySelector('.li-google');
-  const tabs =  document.querySelectorAll('.tab');
-  const reloadBtn = document.querySelector('[data-reload]');
+  let navigateur = document.querySelector('.navigateur');
+  let terminal = document.querySelector('.terminal');
+  let navigateurIcon = document.querySelector('.li-google');
+  let tabs = document.querySelectorAll('.tab');
+  let reloadBtn = document.querySelector('[data-reload]');
+  let closeBtns = document.querySelectorAll('.tab .close-btn');
+  let tabContainer = document.querySelector('.tabs-container');
+  let addTabBtn = document.querySelector('.new-page');
+  let tabsBody = document.querySelectorAll('.navigateur-body');
+
+  tabs[0].classList.add('active');
+  targetTab(tabs[0]);
+
+  tabsMove(tabs);
+  closeTab(closeBtns);
+
+  events();
+
+  addingTab();
+
+  function closeTab(closeBtns) {
+    closeBtns.forEach(closeBtn => {
+      closeBtn.addEventListener('click', () => {
+        setTimeout(() => {
+          const tabDel = closeBtn.parentElement;
+          const tabBodyDel = document.querySelector(tabDel.dataset.target);
+          if(tabDel) {
+            tabDel.remove();
+          }
+          if(tabBodyDel) {
+            tabBodyDel.remove();
+          }
+    
+          let countTabActive = 0;
+          tabs = document.querySelectorAll('.tab');
+          tabs.forEach(tab => {
+            if(tab.classList.contains('active')) {
+              countTabActive += 1;
+            }
+          });
+          if(countTabActive === 0) {
+            console.log(tabs[0]);
+            tabs[0].classList.add('active')
+            targetTab(tabs[0]);
+          }
+        }, 100);
+      });
+    });
+  }
+
+  function removeActive(params) {
+    params.forEach(param => {
+      if(param.classList.contains('active')) {
+        param.classList.remove('active');
+      }
+    });
+  }
+
+  function addTab(theTabs, theTabsBody, theTabContainer, theNavigateur) {
+    const countTab = theTabs.length + 1;
+
+    removeActive(theTabs);
+    removeActive(theTabsBody);
+
+    theTabContainer.innerHTML += `
+      <div class="tab active" data-target="#tab${countTab}">
+        <i class="fa fa-home"></i>
+        <span>Dashboard</span>
+        <div class="close-btn">
+          <i class="fas fa-times"></i>
+        </div>
+      </div>
+    `;
+
+    theNavigateur.innerHTML += `
+      <div class="navigateur-body int active" id="tab${countTab}">
+        <iframe frameborder="0" style="height: 100%; width: 100%;"></iframe>
+      </div>
+    `;
+  }
 
   function targetTab(tab) {
     const target = document.querySelector(tab.dataset.target);
     const targets = document.querySelectorAll('.navigateur-body');
 
-    targets.forEach(e => {
-      e.classList.remove('active');
-    });
-    
-    target.classList.add('active');
+    if(target) {
+      removeActive(targets);
+      
+      target.classList.add('active');
+    }
   }
 
-  tabs[0].classList.add('active');
-  targetTab(tabs[0]);
-
-  tabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-      if(!tab.classList.contains('active')) {
-        tabs.forEach(tabTest => {
-          if(tabTest.classList.contains('active')) {
-            tabTest.classList.remove('active');
+  function tabsMove(tabs) {
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        if(!tab.classList.contains('active')) {
+          tabs.forEach(tabTest => {
+            if(tabTest.classList.contains('active')) {
+              tabTest.classList.remove('active');
+            }
+          });
+  
+          tab.classList.add('active');
+          if(tab.dataset.target) {
+            targetTab(tab);
           }
-        });
-
-        tab.classList.add('active');
-        if(tab.dataset.target) {
-          targetTab(tab);
         }
-      }
+      });
     });
-  });
+  }
 
   // draggable
   if (window.innerWidth > 880) {
@@ -70,37 +144,91 @@ const Browser = () => {
     });
   }
 
-  navigateur.addEventListener('click', () => {
-    toIndexTop();
-  });
+  function events() {
+    navigateur.addEventListener('click', () => {
+      toIndexTop();
+    });
+  
+    navigateur.querySelector(".close").addEventListener("click", function (e) {
+      navigateur.classList.remove('open');
+      navigateurIcon.classList.remove('li-active');
+      resetPage();
+    });
+  
+    navigateur.querySelector(".minimize").addEventListener("click", function (e) {
+      navigateur.classList.remove('open');
+    });
+  
+    navigateur.querySelector(".maximize").addEventListener("click", function (e) {
+      if(navigateur.classList.contains("full-screen")) {
+        navigateur.classList.remove("full-screen");
+      } else {
+        navigateur.classList.add("full-screen");
+      }
+    });
+  
+    navigateurIcon.addEventListener("click", function (e) {
+      navigateur.classList.add('open');
+      navigateurIcon.classList.add('li-active');
+      toIndexTop();
+    });
+  
+    reloadBtn.addEventListener('click', () => {
+      resetPage();
+    });
+  }
 
-  navigateur.querySelector(".close").addEventListener("click", function (e) {
-    navigateur.classList.remove('open');
-    navigateurIcon.classList.remove('li-active');
-    resetPage();
-  });
+  function resetVar() {
+    tabs = document.querySelectorAll('.tab');
+    tabsBody = document.querySelectorAll('.navigateur-body');
+    tabContainer = document.querySelector('.tabs-container');
+    navigateur = document.querySelector('.navigateur');
+    closeBtns = document.querySelectorAll('.tab .close-btn');
+    addTabBtn = document.querySelector('.new-page');
+    navigateurIcon = document.querySelector('.li-google');
+    reloadBtn = document.querySelector('[data-reload]');
+    terminal = document.querySelector('.terminal');
+  }
 
-  navigateur.querySelector(".minimize").addEventListener("click", function (e) {
-    navigateur.classList.remove('open');
-  });
+  function addingTab() {
+    addTabBtn.addEventListener('click', () => {
+      addTab(tabs, tabsBody, tabContainer, navigateur);
+      resetVar();
 
-  navigateur.querySelector(".maximize").addEventListener("click", function (e) {
-    if(navigateur.classList.contains("full-screen")) {
-      navigateur.classList.remove("full-screen");
-    } else {
-      navigateur.classList.add("full-screen");
-    }
-  });
+      addTabBtn.addEventListener('click', () => {
+        tabsBody.forEach(tabBody => {
+          if(tabBody.classList.contains('active')) {
+            if(!tabBody.querySelector('.popup-add-page')) {
+              tabBody.innerHTML += `
+                <div class="popup-add-page">
+                  <div class="popup-header">
+                    <p>Alerte</p>
+                  </div>
+                  <div class="close-popup">
+                    <i class="fas fa-times"></i>
+                  </div>
+                  <div class="popup-body">
+                    <p>Vous ne pouvez pas ouvrir d'autre page</p>
+                  </div>
+                </div>
+              `;
 
-  navigateurIcon.addEventListener("click", function (e) {
-    navigateur.classList.add('open');
-    navigateurIcon.classList.add('li-active');
-    toIndexTop();
-  });
+              const popupAddPage = tabBody.querySelector('.popup-add-page');
+              const closePopup = popupAddPage.querySelector('.close-popup');
 
-  reloadBtn.addEventListener('click', () => {
-    resetPage();
-  });
+              closePopup.addEventListener('click', () => {
+                popupAddPage.remove();
+              });
+            }
+          }
+        });
+      });
+
+      tabsMove(tabs);
+      closeTab(closeBtns);
+      events();
+    });
+  }
 }
 
 export default Browser;

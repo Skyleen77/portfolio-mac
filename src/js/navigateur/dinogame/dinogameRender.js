@@ -17,7 +17,17 @@ const DinogameRender = () => {
           <div class="start-screen" data-start-screen>Touche l'écran pour commencer</div>
           <img src="src/img/ground.png" alt="Ground" class="ground" data-ground>
           <img src="src/img/ground.png" alt="Ground" class="ground" data-ground>
-          <img src="src/img/dino-stationary.png" alt="Dino stationary" class="dino">
+          <img src="src/img/dino-stationary.png" alt="Dino stationary" class="dino" data-dino>
+        </div>
+
+        <div class="fake-error">
+          <h1>Aucun accès à Internet</h1>
+          <p>Voici quelques conseils :<br>
+          <ul>
+            <li>Vérifiez les câbles réseau, le modem et le routeur.</li>
+            <li>Reconnectez-vous au réseau Wi-Fi</li>
+          </ul>
+          <p>ERR_INTERNET_DISCONNECTED</p>
         </div>
 
         <script src="./src/js/navigateur/dinogame/dinogame.js" type="module"></script>
