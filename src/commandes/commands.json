@@ -25,7 +25,8 @@
       "<br>age: 20 ans",
       "<br>statut: Développeur Web Fullstack Freelance",
       "<br>formation: Bac +3",
-      "localisation: Melun, France"
+      "<br>localisation: Melun, France",
+      "<br>description: Je suis actuellement en <a href='https://skyleen.fr' target='blank'>Freelance</a>. En parallèle, je suis en Bachelor 3ème Développeur Web à MyDigitalSchool Melun et en alternance dans l'entreprise <a href='https://technicam.fr' target='blank'>Technicam</a>. Je suis titulaire d'un BTS SIO (Brevet de Technicien Supérieur - Services Informatiques aux Organisations) option SLAM (Solutions Logicielles et Applications Métiers)."
     ]
   },
   {

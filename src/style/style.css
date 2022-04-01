@@ -919,4 +919,34 @@ ul {
 }
 .popup-add-page .close-popup i {
   color: #fff;
+}
+
+#dashboard body {
+  background: #fff !important;
+  display: block !important;
+  overflow-y: auto !important;
+  height: unset !important;
+}
+#dashboard .dashboard h1 {
+  text-align: center;
+  font-size: 40px;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 50px 0;
+}
+#dashboard .dashboard .grid {
+  max-width: 1300px;
+  width: 80%;
+  height: auto;
+  margin: 30px auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 300px);
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  grid-gap: 20px;
+}
+#dashboard .dashboard .grid .grid-item {
+  width: 300px;
+  height: 200px;
+  background-color: #333;
 }/*# sourceMappingURL=style.css.map */

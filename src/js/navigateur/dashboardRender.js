@@ -1,7 +1,7 @@
 const DashboardRender = () => {
   return `
     <!DOCTYPE html>
-    <html lang="fr">
+    <html lang="fr" id="dashboard">
       <head>
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -9,8 +9,28 @@ const DashboardRender = () => {
         <title>Dashboard</title>
         <link href="./src/style/style.css" rel="stylesheet">
       </head>
-      <body style="background: #fff">
-        <h1>Test</h1>
+      <body>
+        <div class='dashboard'>
+          <h1>Dashboard</h1>
+          <div class='grid' data-grid>
+            <div class='grid-item'></div>
+            <div class='grid-item'></div>
+            <div class='grid-item'></div>
+            <div class='grid-item'></div>
+
+            <div class='grid-item'></div>
+            <div class='grid-item'></div>
+            <div class='grid-item'></div>
+            <div class='grid-item'></div>
+
+            <div class='grid-item'></div>
+            <div class='grid-item'></div>
+            <div class='grid-item'></div>
+            <div class='grid-item'></div>
+          </div>
+        </div>
+
+        <script src="./src/js/navigateur/dashboard.js" type="module"></script>
       </body>
     </html>
   `;
