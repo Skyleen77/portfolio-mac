@@ -222,7 +222,6 @@ const Terminal = (commands) => {
 
   function resetTerminal() {
     terminalCommands.innerHTML = '';
-    console.log(terminalCommands.innerHTML);
   }
 
   terminalEl.addEventListener('click', () => {
