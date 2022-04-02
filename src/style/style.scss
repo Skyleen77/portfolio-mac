@@ -25,10 +25,86 @@ body {
   background-image: url("../img/background.png");
   background-repeat: no-repeat;
   background-size: cover;
+
+  .page-loader {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    z-index: 999999999999999999999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #111;
+
+    img {
+      width: 100px;
+      margin-bottom: 60px;
+    }
+
+    .progress-load {
+      width: 400px;
+      max-width: 85vw;
+      height: 4px;
+      border-radius: 4px;
+      background: rgba(255,255,255,0.5);
+      overflow: hidden;
+    }
+    .progress-load:after {
+      content: '';
+      display: block;
+      width: 100%;
+      height: 4px;
+      background: #fff;
+      animation: load 5s linear;
+    }
+  }
+
+  &.loaded {
+    .page-loader {
+      display: none;
+    }
+  }
 }
 
 ul {
   margin: 0;
+}
+
+@keyframes load {
+  0% {
+    width: 0;
+  }
+  10% {
+    width: 5%;
+  }
+  20% {
+    width: 15%;
+  }
+  30% {
+    width: 25%;
+  }
+  40% {
+    width: 30%;
+  }
+  50% {
+    width: 44%;
+  }
+  60% {
+    width: 50%;
+  }
+  70% {
+    width: 72%;
+  }
+  80% {
+    width: 84%;
+  }
+  90% {
+    width: 92%;
+  }
+  100% {
+    width: 100%;
+  }
 }
 
 @import './mixins.scss';

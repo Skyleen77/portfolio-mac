@@ -53,11 +53,126 @@ body.light-mode {
   --terminal-header-bg: #F9F5F9;
   --scollbar-color: #00000095;
 }
+body .page-loader {
+  position: absolute;
+  width: 100%;
+  height: 100vh;
+  z-index: 1000000000000000100000;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  background-color: #111;
+}
+body .page-loader img {
+  width: 100px;
+  margin-bottom: 60px;
+}
+body .page-loader .progress-load {
+  width: 400px;
+  max-width: 85vw;
+  height: 4px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.5);
+  overflow: hidden;
+}
+body .page-loader .progress-load:after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 4px;
+  background: #fff;
+  -webkit-animation: load 5s linear;
+          animation: load 5s linear;
+}
+body.loaded .page-loader {
+  display: none;
+}
 
 ul {
   margin: 0;
 }
 
+@-webkit-keyframes load {
+  0% {
+    width: 0;
+  }
+  10% {
+    width: 5%;
+  }
+  20% {
+    width: 15%;
+  }
+  30% {
+    width: 25%;
+  }
+  40% {
+    width: 30%;
+  }
+  50% {
+    width: 44%;
+  }
+  60% {
+    width: 50%;
+  }
+  70% {
+    width: 72%;
+  }
+  80% {
+    width: 84%;
+  }
+  90% {
+    width: 92%;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+@keyframes load {
+  0% {
+    width: 0;
+  }
+  10% {
+    width: 5%;
+  }
+  20% {
+    width: 15%;
+  }
+  30% {
+    width: 25%;
+  }
+  40% {
+    width: 30%;
+  }
+  50% {
+    width: 44%;
+  }
+  60% {
+    width: 50%;
+  }
+  70% {
+    width: 72%;
+  }
+  80% {
+    width: 84%;
+  }
+  90% {
+    width: 92%;
+  }
+  100% {
+    width: 100%;
+  }
+}
 .terminal {
   position: absolute;
   z-index: 2;
@@ -673,7 +788,7 @@ ul {
 .navigateur .navigateur-header {
   height: 35px;
   padding: 0 8px;
-  background-color: #e8e9ed;
+  background-color: rgb(232, 233, 237);
   margin: 0 auto;
   border-top-right-radius: 7px;
   border-top-left-radius: 7px;
@@ -733,7 +848,7 @@ ul {
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
-  color: #535353;
+  color: rgb(83, 83, 83);
   font-size: 13px;
   width: 80px;
   margin: 0 7px;
@@ -830,7 +945,7 @@ ul {
           align-items: center;
   padding: 6px;
   background-color: #fff;
-  border-bottom: 1px solid #e8e9ed;
+  border-bottom: 1px solid rgb(232, 233, 237);
 }
 .navigateur .navigateur-nav i {
   font-size: 14px;
@@ -849,7 +964,7 @@ ul {
   -webkit-padding-start: 2rem;
           padding-inline-start: 2rem;
   border-radius: 9999px;
-  background-color: whitesmoke;
+  background-color: rgb(245, 245, 245);
   outline: none;
 }
 .navigateur .navigateur-nav .search i {
@@ -870,7 +985,7 @@ ul {
   border-radius: 9999px;
 }
 .navigateur .navigateur-nav button i:hover {
-  background-color: #c9c9c9;
+  background-color: rgb(201, 201, 201);
   cursor: pointer;
   color: #fff;
 }
@@ -1107,7 +1222,7 @@ body {
 }
 .contact .contact-sidebar .contact-sidebar-container {
   padding: 15px;
-  margin-top: 10px;
+  margin-top: 30px;
 }
 .contact .contact-sidebar .contact-sidebar-container .contact-sidebar-title {
   font-size: 13px;
@@ -1118,7 +1233,7 @@ body {
   color: #fff;
   padding: 7px 15px;
   padding-top: 8px;
-  background: radial-gradient(#2f69f6, #2a63f6);
+  background: radial-gradient(rgb(47, 105, 246), rgb(42, 99, 246));
   cursor: pointer;
   border-radius: 7px;
 }
@@ -1139,7 +1254,10 @@ body {
 .contact .contact-body .contact-body-content .contact-body-content-item .form-control {
   width: 100%;
 }
-.contact .contact-body .contact-body-content .contact-body-content-item .form-control input:not([type=submit]), .contact .contact-body .contact-body-content .contact-body-content-item .form-control textarea {
+.contact .contact-body .contact-body-content .contact-body-content-item .form-control:first-child {
+  margin-top: 40px;
+}
+.contact .contact-body .contact-body-content .contact-body-content-item .form-control input, .contact .contact-body .contact-body-content .contact-body-content-item .form-control textarea {
   border-radius: 4px;
   position: relative;
   vertical-align: middle;
@@ -1162,40 +1280,57 @@ body {
   outline: none;
   -webkit-transition: border-color 100ms ease;
   transition: border-color 100ms ease;
-  border-color: #e6e6e6;
-  color: #272727;
+  border-color: rgb(230, 230, 230);
+  color: rgb(39, 39, 39);
   margin-bottom: 10px;
   font-family: Arial, Helvetica, sans-serif;
+}
+.contact .contact-body .contact-body-content .contact-body-content-item .form-control input:hover, .contact .contact-body .contact-body-content .contact-body-content-item .form-control textarea:hover {
+  border-color: #d1d1d1;
+}
+.contact .contact-body .contact-body-content .contact-body-content-item .form-control input:active, .contact .contact-body .contact-body-content .contact-body-content-item .form-control input:focus, .contact .contact-body .contact-body-content .contact-body-content-item .form-control textarea:active, .contact .contact-body .contact-body-content .contact-body-content-item .form-control textarea:focus {
+  border-color: #989898;
 }
 .contact .contact-body .contact-body-content .contact-body-content-item .form-control textarea {
   resize: vertical;
 }
-.contact .contact-body .contact-body-content .contact-body-content-item .form-control input[type=submit] {
+.contact .contact-body .contact-body-content .contact-body-content-item .form-control button[type=submit] {
   font-size: 16px;
   border: none;
   outline: none;
-  background: radial-gradient(#2f69f6, #2a63f6);
+  background: radial-gradient(rgb(47, 105, 246), rgb(42, 99, 246));
   color: #fff;
   padding: 9px 15px;
   padding-top: 10px;
   border-radius: 7px;
+  cursor: pointer;
+}
+.contact .contact-body .contact-body-content .contact-body-content-item .form-control button[type=submit].valid {
+  background: green;
+}
+.contact .contact-body .contact-body-content .contact-body-content-item .form-control button[type=submit].valid #submitValid {
+  display: inline-block;
+}
+.contact .contact-body .contact-body-content .contact-body-content-item .form-control #submitLoader,
+.contact .contact-body .contact-body-content .contact-body-content-item .form-control #submitValid {
+  display: none;
 }
 .contact .contact-body .contact-body-title {
-  color: #9c9c9c;
+  color: rgb(156, 156, 156);
 }
 .contact .contact-body .contact-body-subtitle {
-  color: #272727;
+  color: rgb(39, 39, 39);
   padding-left: 8px;
 }
 .contact .contact-body .contact-body-subtitle i {
-  color: #2f69f6;
+  color: rgb(47, 105, 246);
 }
 .contact .contact-body .contact-body-subtitle i:last-child {
   padding-left: 8px;
 }
 .contact .contact-body hr {
   height: 2px;
-  background-color: #e6e6e6;
+  background-color: rgb(230, 230, 230);
   border: none;
 }
 .contact .contact-body .contact-body-header {
@@ -1239,11 +1374,11 @@ body {
   text-decoration: none;
 }
 .contact .contact-body .contact-body-buttons .contact-body-button span {
-  color: #2f69f6;
+  color: rgb(47, 105, 246);
   font-size: 13px;
 }
 .contact .contact-body .contact-body-buttons .contact-body-button i {
-  background: radial-gradient(#2f69f6, #2a63f6);
+  background: radial-gradient(rgb(47, 105, 246), rgb(42, 99, 246));
   border-radius: 9999px;
   height: 40px;
   width: 40px;

@@ -87,7 +87,7 @@ body {
   color: #fff;
   padding: 7px 15px;
   padding-top: 8px;
-  background: radial-gradient(#2f69f6, #2a63f6);
+  background: radial-gradient(rgb(47, 105, 246), rgb(42, 99, 246));
   cursor: pointer;
   border-radius: 7px;
 }
@@ -134,8 +134,8 @@ body {
   outline: none;
   -webkit-transition: border-color 100ms ease;
   transition: border-color 100ms ease;
-  border-color: #e6e6e6;
-  color: #272727;
+  border-color: rgb(230, 230, 230);
+  color: rgb(39, 39, 39);
   margin-bottom: 10px;
   font-family: Arial, Helvetica, sans-serif;
 }
@@ -152,7 +152,7 @@ body {
   font-size: 16px;
   border: none;
   outline: none;
-  background: radial-gradient(#2f69f6, #2a63f6);
+  background: radial-gradient(rgb(47, 105, 246), rgb(42, 99, 246));
   color: #fff;
   padding: 9px 15px;
   padding-top: 10px;
@@ -170,21 +170,21 @@ body {
   display: none;
 }
 .contact .contact-body .contact-body-title {
-  color: #9c9c9c;
+  color: rgb(156, 156, 156);
 }
 .contact .contact-body .contact-body-subtitle {
-  color: #272727;
+  color: rgb(39, 39, 39);
   padding-left: 8px;
 }
 .contact .contact-body .contact-body-subtitle i {
-  color: #2f69f6;
+  color: rgb(47, 105, 246);
 }
 .contact .contact-body .contact-body-subtitle i:last-child {
   padding-left: 8px;
 }
 .contact .contact-body hr {
   height: 2px;
-  background-color: #e6e6e6;
+  background-color: rgb(230, 230, 230);
   border: none;
 }
 .contact .contact-body .contact-body-header {
@@ -228,11 +228,11 @@ body {
   text-decoration: none;
 }
 .contact .contact-body .contact-body-buttons .contact-body-button span {
-  color: #2f69f6;
+  color: rgb(47, 105, 246);
   font-size: 13px;
 }
 .contact .contact-body .contact-body-buttons .contact-body-button i {
-  background: radial-gradient(#2f69f6, #2a63f6);
+  background: radial-gradient(rgb(47, 105, 246), rgb(42, 99, 246));
   border-radius: 9999px;
   height: 40px;
   width: 40px;
