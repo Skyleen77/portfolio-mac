@@ -62,25 +62,33 @@ const ContactRender = () => {
               <div class="contact-body-content-item">
                 <span class="contact-body-title">Email</span> <span class="contact-body-subtitle">elsk8@outlook.fr</span>
                 <p class="contact-body-form">
-                  <form>
+                  <form id="contactForm">
                     <div class="form-control">
-                      <input type="text" name="name" id="name" placeholder="Nom et prénom">
+                      <input type="text" id="name" placeholder="Nom et prénom" required>
                     </div>
                     <div class="form-control">
-                      <input type="email" name="email" id="email" placeholder="Adresse e-mail">
+                      <input type="email" id="email" placeholder="Adresse e-mail" required>
                     </div>
                     <div class="form-control">
-                      <textarea rows="4" name="message" id="message" placeholder="Message"></textarea>
+                      <textarea rows="4" id="message" placeholder="Message" required></textarea>
                     </div>
                     <div class="form-control">
-                      <input type="submit" value="Envoyer">
+                      <button type="submit" id="submitBtn">
+                        Envoyer <i id="submitLoader" class="fa fa-spinner fa-spin"></i><i id="submitValid" class="fas fa-check"></i>
+                      </button>
                     </div>
                   </form>
+                  <br>
+                  <span id="alertMessage"></span>
                 </p>
               </div>
             </div>
           </div>
         </div>
+
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+        <script src="src/js/contact/contactForm.js" type="module"></script>
       </body>
     </html>
   `;

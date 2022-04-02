@@ -111,7 +111,7 @@ body {
 .contact .contact-body .contact-body-content .contact-body-content-item .form-control:first-child {
   margin-top: 40px;
 }
-.contact .contact-body .contact-body-content .contact-body-content-item .form-control input:not([type=submit]), .contact .contact-body .contact-body-content .contact-body-content-item .form-control textarea {
+.contact .contact-body .contact-body-content .contact-body-content-item .form-control input, .contact .contact-body .contact-body-content .contact-body-content-item .form-control textarea {
   border-radius: 4px;
   position: relative;
   vertical-align: middle;
@@ -139,10 +139,16 @@ body {
   margin-bottom: 10px;
   font-family: Arial, Helvetica, sans-serif;
 }
+.contact .contact-body .contact-body-content .contact-body-content-item .form-control input:hover, .contact .contact-body .contact-body-content .contact-body-content-item .form-control textarea:hover {
+  border-color: #d1d1d1;
+}
+.contact .contact-body .contact-body-content .contact-body-content-item .form-control input:active, .contact .contact-body .contact-body-content .contact-body-content-item .form-control input:focus, .contact .contact-body .contact-body-content .contact-body-content-item .form-control textarea:active, .contact .contact-body .contact-body-content .contact-body-content-item .form-control textarea:focus {
+  border-color: #989898;
+}
 .contact .contact-body .contact-body-content .contact-body-content-item .form-control textarea {
   resize: vertical;
 }
-.contact .contact-body .contact-body-content .contact-body-content-item .form-control input[type=submit] {
+.contact .contact-body .contact-body-content .contact-body-content-item .form-control button[type=submit] {
   font-size: 16px;
   border: none;
   outline: none;
@@ -151,6 +157,17 @@ body {
   padding: 9px 15px;
   padding-top: 10px;
   border-radius: 7px;
+  cursor: pointer;
+}
+.contact .contact-body .contact-body-content .contact-body-content-item .form-control button[type=submit].valid {
+  background: green;
+}
+.contact .contact-body .contact-body-content .contact-body-content-item .form-control button[type=submit].valid #submitValid {
+  display: inline-block;
+}
+.contact .contact-body .contact-body-content .contact-body-content-item .form-control #submitLoader,
+.contact .contact-body .contact-body-content .contact-body-content-item .form-control #submitValid {
+  display: none;
 }
 .contact .contact-body .contact-body-title {
   color: #9c9c9c;

@@ -4,9 +4,13 @@ const Contact = () => {
   const terminal = document.querySelector('.terminal');
   const contactIcon = document.querySelector('.li-contact');
 
-  console.log(contact)
-
   contact.addEventListener('click', () => {
+    toIndexTop();
+  });
+
+  contactIcon.addEventListener("click", function (e) {
+    contact.classList.add('open');
+    contactIcon.classList.add('li-active');
     toIndexTop();
   });
 
