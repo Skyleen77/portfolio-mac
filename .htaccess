@@ -1,0 +1,15 @@
+#-----------------------
+# Config
+#-----------------------
+
+# Le serveur doit suivre les liens symboliques
+Options +FollowSymlinks
+
+# Activation du module de réécriture d'url
+RewriteEngine on
+
+#-----------------------
+# Règles de réécriture d'url
+#-----------------------
+
+RewriteRule ^$ index.html [L]
