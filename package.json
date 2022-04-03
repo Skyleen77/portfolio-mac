@@ -1,0 +1,20 @@
+{
+  "name": "portfolio-terminal",
+  "version": "1.0.0",
+  "description": "Portfolio style terminal Mac OS",
+  "main": "config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Skyleen77/portfolio-mac.git"
+  },
+  "keywords": [],
+  "author": "Elliot Sutton alias Skyleen",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Skyleen77/portfolio-mac/issues"
+  },
+  "homepage": "https://github.com/Skyleen77/portfolio-mac#readme"
+}
