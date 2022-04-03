@@ -36,18 +36,7 @@ const MacOS = () => {
     date = date.replace(date.charAt(0), date.charAt(0).toUpperCase());
     
     time.textContent = date;
-  }, 1000);
-
-  icons.forEach((item, index) => {
-    item.addEventListener("mouseover", (e) => {
-      focus(e.target, index);
-    });
-    item.addEventListener("mouseleave", (e) => {
-      icons.forEach((item) => {
-        item.style.transform = "scale(1)  translateY(0px)";
-      });
-    });
-  });
+  }, 1000);  
 
   const focus = (elem, index) => {
     const previous = index - 1;
@@ -75,7 +64,29 @@ const MacOS = () => {
         icons[next2].style.transform = "scale(1.1)";
       }
     }
-  };
+  }
+
+  const focusItems = () => {
+    icons.forEach((item, index) => {
+      item.addEventListener("mouseover", (e) => {
+        focus(e.target, index);
+      });
+      item.addEventListener("mouseleave", (e) => {
+        icons.forEach((item) => {
+          item.style.transform = "scale(1)  translateY(0px)";
+        });
+      });
+    });
+  }
+
+  if (window.innerWidth > 880) {
+    focusItems();
+  }
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 880) {
+      focusItems();
+    }
+  });
 }
 
 export default MacOS;

@@ -94,11 +94,11 @@ const ContactRender = () => {
   `;
 
   // draggable
-  if (window.innerWidth > 880) {
+  if (window.innerWidth > 1024) {
     draggable(contactWrapper, ".contact-header");
   }
   window.addEventListener('resize', () => {
-    if (window.innerWidth > 880) {
+    if (window.innerWidth > 1024) {
       draggable(contactWrapper, ".contact-header");
     }
   });

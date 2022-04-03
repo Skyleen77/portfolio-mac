@@ -159,9 +159,6 @@
 
 @media (max-width: 880px) {
   .terminal {
-    height: 80% !important;
-    width: 90% !important;
-
     .terminal-header {
       cursor: unset;
     }
@@ -177,15 +174,13 @@
 }
 
 @media (max-width: 640px) {
-  body {
-    align-items: center;
-    flex-direction: column;
-    justify-content: space-evenly;
-  }
 
   .terminal {
-    top: 50px;
     resize: none;
+    bottom: 10px;
+    position: relative !important;
+    width: unset !important;
+    height: unset !important;
     
     &.full-screen {
       .terminal-body {
@@ -195,10 +190,9 @@
     }
 
     .terminal-body {
-      max-width: unset;
-      width: 90vw;
-      height: 75vh;
-      margin-bottom: 7vh;
+      max-width: unset !important;
+      width: 90vw !important;
+      height: 65vh !important;
 
       .terminal-banner {
         pre {

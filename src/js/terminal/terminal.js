@@ -1,7 +1,10 @@
-import { getCV, setDarkMode } from "./custom-comands.js";
+import { getCV, setLightMode } from "./custom-comands.js";
 import { draggable } from "../draggable.js";
 
 const Terminal = (commands) => {
+  const navigateur = document.querySelector('.navigateur');
+  const contact = document.querySelector('.contact-wrapper');
+
   let commandsList = [];
   const customCommands = ["clear", "dark", "light", "cv"];
   const hiddenCommands = [];
@@ -20,11 +23,11 @@ const Terminal = (commands) => {
   }
 
   // draggable
-  if (window.innerWidth > 880) {
+  if (window.innerWidth > 1024) {
     draggable(terminalEl, ".terminal-header");
   }
   window.addEventListener('resize', () => {
-    if (window.innerWidth > 880) {
+    if (window.innerWidth > 1024) {
       draggable(terminalEl, ".terminal-header");
     }
   });
@@ -37,11 +40,6 @@ const Terminal = (commands) => {
 
   // default line
   addNewLine();
-
-  // switch to dark mode if the browser theme is dark
-  if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-    setDarkMode(true);
-  }
 
   // returns the HTML of the response for a given command
   function getDomForCommand(command) {
@@ -99,7 +97,6 @@ const Terminal = (commands) => {
     inputEl.id = `input-${uid}`;
     inputEl.autocapitalize = "off";
     inputEl.dataset.uid = uid;
-    inputEl.dataset.active = "1";
     inputEl.addEventListener("keydown", onCommandInput);
 
     terminalLineEl.appendChild(inputEl);
@@ -108,7 +105,6 @@ const Terminal = (commands) => {
       if (previousInputEl) {
         previousInputEl.setAttribute("disabled", "true");
         previousInputEl.removeEventListener("keydown", onCommandInput);
-        delete previousInputEl.dataset.active;
       }
     }
     document.getElementById("terminal").appendChild(terminalLineEl);
@@ -184,12 +180,12 @@ const Terminal = (commands) => {
       case "light":
         if (document.body.classList.contains("light-mode"))
           return "Vous êtes déjà en mode clair";
-        setDarkMode(true);
+        setLightMode(true);
         return "Vous êtes maintenant en mode clair.";
       case "dark":
         if (!document.body.classList.contains("light-mode"))
           return "Vous êtes déjà en mode sombre";
-        setDarkMode(false);
+        setLightMode(false);
         return "Vous êtes maintenant en mode sombre.";
       case "cv":
         getCV();
@@ -201,11 +197,14 @@ const Terminal = (commands) => {
   }
 
   function toIndexTop() {
-    const navigateur = document.querySelector('.navigateur');
     const zIndex = parseInt(window.getComputedStyle(terminalEl)['zIndex']);
     const navZIndex = parseInt(window.getComputedStyle(navigateur)['zIndex']);
-    if(zIndex <= navZIndex) {
-      const newZIndex = zIndex + 2;
+    const contactZIndex = parseInt(window.getComputedStyle(contact)['zIndex']);
+
+    const compareZIndex = navZIndex >= contactZIndex ? navZIndex : contactZIndex;
+
+    if(compareZIndex >= zIndex) {
+      const newZIndex = compareZIndex + 1;
       terminalEl.style.zIndex = `${newZIndex}`;
     }
   }
@@ -226,13 +225,6 @@ const Terminal = (commands) => {
 
   terminalEl.addEventListener('click', () => {
     toIndexTop();
-  });
-
-  document.body.addEventListener("click", function (e) {
-    if (e.target.tagName !== "INPUT") {
-      const activeInput = document.querySelector("input[data-active]");
-      activeInput.focus();
-    }
   });
 
   terminalEl.querySelector(".close").addEventListener("click", function (e) {

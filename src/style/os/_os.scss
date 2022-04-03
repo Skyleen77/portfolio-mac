@@ -215,6 +215,9 @@
 }
 
 @media (max-width: 880px) {
+  .dock .dock-container li:hover {
+    margin: 0;
+  }
   .menu-bar .right .menu-time {
     display: none;
   }
@@ -230,7 +233,8 @@
 .contact-header {
   cursor: move;
   position: absolute;
-  height: 40px;
+  height: 36px;
+  background: rgba(#EAE6EC, 0.98);
   width: 100%;
   padding: 0 8px;
 

@@ -1,4 +1,4 @@
-export function setDarkMode(value) {
+export function setLightMode(value) {
   if (value) {
     document.body.classList.add("light-mode");
   } else {

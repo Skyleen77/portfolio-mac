@@ -40,7 +40,7 @@ body {
   transition: transform 0.4s, -webkit-transform 0.4s;
   z-index: 1;
   min-height: 200px;
-  min-width: 200px;
+  width: min(900px, 90vw);
 }
 .contact-wrapper.open {
   -webkit-transform: scale(100%);

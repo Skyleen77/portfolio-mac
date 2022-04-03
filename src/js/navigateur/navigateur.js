@@ -4,6 +4,7 @@ import DashboardRender from "./dashboardRender.js";
 const Browser = () => {
   let navigateur = document.querySelector('.navigateur');
   let terminal = document.querySelector('.terminal');
+  let contact = document.querySelector('.contact-wrapper');
   let navigateurIcon = document.querySelector('.li-google');
   let tabs = document.querySelectorAll('.tab');
   let reloadBtn = document.querySelector('[data-reload]');
@@ -26,11 +27,11 @@ const Browser = () => {
   addingTab();
 
   // draggable
-  if (window.innerWidth > 880) {
+  if (window.innerWidth > 1024) {
     draggable(navigateur, ".navigateur-header");
   }
   window.addEventListener('resize', () => {
-    if (window.innerWidth > 880) {
+    if (window.innerWidth > 1024) {
       draggable(navigateur, ".navigateur-header");
     }
   });
@@ -111,8 +112,12 @@ const Browser = () => {
   function toIndexTop() {
     const zIndex = parseInt(window.getComputedStyle(terminal)['zIndex']);
     const navZIndex = parseInt(window.getComputedStyle(navigateur)['zIndex']);
-    if(zIndex >= navZIndex) {
-      const newZIndex = zIndex + 1;
+    const contactZIndex = parseInt(window.getComputedStyle(contact)['zIndex']);
+
+    const compareZIndex = zIndex >= contactZIndex ? zIndex : contactZIndex;
+
+    if(compareZIndex >= navZIndex) {
+      const newZIndex = compareZIndex + 1;
       navigateur.style.zIndex = `${newZIndex}`;
     }
   }

@@ -398,3 +398,16 @@
     }
   }
 }
+
+@media (max-width: 640px) {
+  #dashboard {
+    .grid {
+      grid-template-columns: repeat(auto-fill, 250px) !important;
+
+      .grid-item {
+        width: 250px !important;
+        height: 170px !important;
+      }
+    }
+  }
+}

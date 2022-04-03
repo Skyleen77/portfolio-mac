@@ -49,7 +49,7 @@ body.light-mode {
   --text-color: #000;
   --link-color: #008296;
   --username-color: #3f8e91;
-  --terminal-bg: #ffffff90;
+  --terminal-bg: rgba(255, 255, 255, 82%);
   --terminal-header-bg: #F9F5F9;
   --scollbar-color: #00000095;
 }
@@ -189,7 +189,7 @@ ul {
   transition: transform 0.4s, -webkit-transform 0.4s;
   z-index: 1;
   min-height: 200px;
-  min-width: 200px;
+  width: min(900px, 90vw);
 }
 .terminal a {
   text-decoration: none;
@@ -331,10 +331,6 @@ ul {
 }
 
 @media (max-width: 880px) {
-  .terminal {
-    height: 80% !important;
-    width: 90% !important;
-  }
   .terminal .terminal-header {
     cursor: unset;
   }
@@ -343,32 +339,21 @@ ul {
   }
 }
 @media (max-width: 640px) {
-  body {
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-pack: space-evenly;
-        -ms-flex-pack: space-evenly;
-            justify-content: space-evenly;
-  }
-
   .terminal {
-    top: 50px;
     resize: none;
+    bottom: 10px;
+    position: relative !important;
+    width: unset !important;
+    height: unset !important;
   }
   .terminal.full-screen .terminal-body {
     width: 100% !important;
     height: calc(100vh - 41px) !important;
   }
   .terminal .terminal-body {
-    max-width: unset;
-    width: 90vw;
-    height: 75vh;
-    margin-bottom: 7vh;
+    max-width: unset !important;
+    width: 90vw !important;
+    height: 65vh !important;
   }
   .terminal .terminal-body .terminal-banner pre {
     font-size: 5px;
@@ -700,6 +685,10 @@ ul {
   }
 }
 @media (max-width: 880px) {
+  .dock .dock-container li:hover {
+    margin: 0;
+  }
+
   .menu-bar .right .menu-time {
     display: none;
   }
@@ -713,7 +702,8 @@ ul {
 .contact-header {
   cursor: move;
   position: absolute;
-  height: 40px;
+  height: 36px;
+  background: rgba(234, 230, 236, 0.98);
   width: 100%;
   padding: 0 8px;
 }
@@ -761,7 +751,7 @@ ul {
   transition: transform 0.4s, -webkit-transform 0.4s;
   z-index: 1;
   min-height: 200px;
-  min-width: 200px;
+  width: min(900px, 90vw);
   background: #fff;
   font-family: "San Francisco";
 }
@@ -1144,6 +1134,15 @@ ul {
   opacity: 1;
 }
 
+@media (max-width: 640px) {
+  #dashboard .grid {
+    grid-template-columns: repeat(auto-fill, 250px) !important;
+  }
+  #dashboard .grid .grid-item {
+    width: 250px !important;
+    height: 170px !important;
+  }
+}
 :root {
   --text-color: #fff;
   --link-color: #00DDFF;
@@ -1186,7 +1185,7 @@ body {
   transition: transform 0.4s, -webkit-transform 0.4s;
   z-index: 1;
   min-height: 200px;
-  min-width: 200px;
+  width: min(900px, 90vw);
 }
 .contact-wrapper.open {
   -webkit-transform: scale(100%);

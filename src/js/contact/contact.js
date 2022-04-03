@@ -39,7 +39,7 @@ const Contact = () => {
     const compareZIndex = zIndex >= navZIndex ? zIndex : navZIndex;
 
     if(compareZIndex >= contactZIndex) {
-      const newZIndex = zIndex + 1;
+      const newZIndex = compareZIndex + 1;
       contact.style.zIndex = `${newZIndex}`;
     }
   }
