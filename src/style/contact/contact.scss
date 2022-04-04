@@ -66,6 +66,7 @@ body {
     width: $body-size;
     background-color: #fff;
     border-left: 1px solid #C3C0C5;
+    overflow: auto;
 
     .contact-body-content {
       padding: 25px;
