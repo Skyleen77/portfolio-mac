@@ -1240,6 +1240,7 @@ body {
   width: 70%;
   background-color: #fff;
   border-left: 1px solid #C3C0C5;
+  overflow: auto;
 }
 .contact .contact-body .contact-body-content {
   padding: 25px;
